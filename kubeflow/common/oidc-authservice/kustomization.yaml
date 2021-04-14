@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/kubeflow/manifests/common/oidc-authservice/base
+
+images:
+- name: gcr.io/arrikto/kubeflow/oidc-authservice
+  newName: gcr.io/arrikto/kubeflow/oidc-authservice
+  newTag: 28c59ef
+  digest: sha256:c9450b805ad5c333f6a0d9491719a1d3fb4449fe017e37d3ad4c7591c763746b

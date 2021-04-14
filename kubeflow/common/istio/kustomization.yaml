@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-install/base
+- github.com/kubeflow/manifests/common/istio-1-9-0/cluster-local-gateway/base
+- github.com/kubeflow/manifests/common/istio-1-9-0/kubeflow-istio-resources/base
+- ingress-certificate.yaml
+
+patchesStrategicMerge:
+- gateway-service.yaml
+- sidecar-configmap-patch.yaml
+- https-gateway.yaml
+
+images:
+- name: docker.io/istio/proxyv2
+  newName: docker.io/istio/proxyv2
+  newTag: 1.9.2
+  digest: sha256:ee9c153e2f973937befb8af61e7269ab368020b6e7d91b5d891bbbeba55eb266
+- name: docker.io/istio/pilot
+  newName: docker.io/istio/pilot
+  newTag: 1.9.2
+  digest: sha256:e8166f78ba0f153814a259b07fa60f8c96ef602cf1f87b75789cd5202306dfe3

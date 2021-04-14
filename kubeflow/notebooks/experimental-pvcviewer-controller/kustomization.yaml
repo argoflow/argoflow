@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/DavidSpek/kubeflow/components/pvcviewer-controller/config/overlays/kubeflow?ref=pvc-viewer-controller
+
+images:
+- name: davidspek/kubeflow-pvcviewer-controller
+  newName: davidspek/kubeflow-pvcviewer-controller
+  newTag: "0.6"
+  digest: sha256:54b0fba77e14fdb0cca39cf391e68f8f74e65775de2dc7f742bc7637aa8ce45a

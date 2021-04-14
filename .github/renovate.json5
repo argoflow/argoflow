@@ -1,0 +1,59 @@
+
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    //"schedule:daily",
+    ":dependencyDashboard",
+    ":prHourlyLimitNone"
+  ],
+  "schedule": [
+    "before 11pm"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": true
+    },
+    //{
+    //  "matchDatasources": [
+    //    "docker"
+    //  ],
+    //  "enabled": true,
+    //  "pinDigests": true
+    //},
+    //{
+    //  "matchDatasources": [
+    //    "github-releases",
+    //    "github-tags"
+    //  ],
+    //  "pinDigests": true,
+    //  "digest": {
+    //    "enabled": true,
+    //    "automerge": false
+    //},
+    //},
+    { // major updates do not create PRs automatically
+      "updateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+    }
+  ],
+  "separateMinorPatch": true,
+  "kustomize": {
+    "enabled": true,
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)kustomization.yaml$"],
+      "matchStrings": [
+          "- github\\.com\\/(?<depName>[^/]+?\\/[^/]*?)\\/.*\\?ref=(?<currentDigest>[a-f0-9]{40}) # tag=(?<currentValue>.*)"
+        ],
+      "datasourceTemplate": "github-tags"
+    }
+  ]
+}

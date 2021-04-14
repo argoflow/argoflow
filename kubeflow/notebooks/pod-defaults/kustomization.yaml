@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/kubeflow/kubeflow/components/admission-webhook/manifests/overlays/cert-manager?ref=0214c7ab0480352d4757a9a6296051470c9878da # tag=v1.3.0-rc.0
+
+images:
+- name: public.ecr.aws/j1r0q0g6/notebooks/admission-webhook
+  newName: public.ecr.aws/j1r0q0g6/notebooks/admission-webhook
+  newTag: v1.3.0-rc.0

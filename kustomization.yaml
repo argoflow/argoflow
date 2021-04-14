@@ -1,0 +1,32 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+# non-kubeflow
+# - argocd-applications/metallb.yaml
+- argocd-applications/argocd.yaml
+- argocd-applications/kubeflow-roles-namespaces.yaml
+- argocd-applications/cert-manager.yaml
+- argocd-applications/istio.yaml
+- argocd-applications/oidc-authservice.yaml
+- argocd-applications/dex-istio.yaml
+- argocd-applications/knative.yaml
+- argocd-applications/pipelines.yaml
+- argocd-applications/kfserving.yaml
+- argocd-applications/katib.yaml
+- argocd-applications/central-dashboard.yaml
+- argocd-applications/pod-defaults.yaml
+- argocd-applications/jupyter-web-app.yaml
+- argocd-applications/notebook-controller.yaml
+- argocd-applications/profile-controller_access-management.yaml
+- argocd-applications/tensorboard-controller.yaml
+- argocd-applications/tensorboards-web-app.yaml
+- argocd-applications/volumes-web-app.yaml
+- argocd-applications/tensorflow-operator.yaml
+- argocd-applications/pytorch-operator.yaml
+- argocd-applications/mpi-operator.yaml
+- argocd-applications/mxnet-operator.yaml
+- argocd-applications/xgboost-operator.yaml
+- argocd-applications/user-namespace.yaml
+# - argocd-applications/experimental-pvcviewer-controller.yaml
+# - argocd-applications/experimental-volumes-web-app.yaml

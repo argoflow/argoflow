@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/kubeflow/pytorch-operator/manifests/overlays/kubeflow?ref=2aae331f8b31e95c3a187ec07a93d8d11fc7bb78 # tag=v0.7.0
+
+images:
+- name: gcr.io/kubeflow-images-public/pytorch-operator
+  newName: gcr.io/kubeflow-images-public/pytorch-operator
+  newTag: vmaster-g518f9c76
+  digest: sha256:51d5db40f01eae4c195cacc7a87e57585c3512b3899b54a0754aa81cb5f7d1f8

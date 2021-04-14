@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: volumes-web-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kubeflow-onprem/ArgoFlow
+    targetRevision: HEAD
+    path: kubeflow/notebooks/volumes-web-app
+    kustomize:
+      version: v4.0.5
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,63 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/kubeflow/pipelines/manifests/kustomize/env/platform-agnostic-multi-user-pns?ref=3b5030aefa137a1d67d45de6df656b172330eea3 # tag=1.5.0-rc.3
+
+images:
+- name: gcr.io/ml-pipeline/cache-deployer
+  newName: gcr.io/ml-pipeline/cache-deployer
+  newTag: 1.5.0-rc.2
+  digest: sha256:a13d49a4bee754f221697957d8491469bf2f958bbaac3d09707f053c8a4adf83
+- name: gcr.io/ml-pipeline/cache-server
+  newName: gcr.io/ml-pipeline/cache-server
+  newTag: 1.5.0-rc.2
+  digest: sha256:6734f3c7b0a0d868cd80b9299d386f902a44b2e4fc1d1c74bc6b621409fb734d
+- name: gcr.io/ml-pipeline/metadata-envoy
+  newName: gcr.io/ml-pipeline/metadata-envoy
+  newTag: 1.5.0-rc.2
+  digest: sha256:8e668c8165ef0b70efb818c6789b4e437a975e13d258ea2c1bbf335be9a2aae1
+- name: gcr.io/tfx-oss-public/ml_metadata_store_server
+  newName: gcr.io/tfx-oss-public/ml_metadata_store_server
+  newTag: 0.25.1
+  digest: sha256:01691247116fe048e0761ae8033efaad3ddd82438d0198f2235afb37c1757d48
+- name: gcr.io/ml-pipeline/metadata-writer
+  newName: gcr.io/ml-pipeline/metadata-writer
+  newTag: 1.5.0-rc.2
+  digest: sha256:f25c8e911934b3dbe581986b77867512d887f08c591fa369cbc7cb2bbd1b4702
+- name: gcr.io/ml-pipeline/minio
+  newName: gcr.io/ml-pipeline/minio
+  newTag: RELEASE.2019-08-14T20-37-41Z-license-compliance
+  digest: sha256:587abc14be9bbeed794473cf7290c40e377062f2f77f5e4e27742a77680f08e0
+- name: gcr.io/ml-pipeline/api-server
+  newName: gcr.io/ml-pipeline/api-server
+  newTag: 1.5.0-rc.2
+  digest: sha256:fd36e14ea7cfb5006315f30433d0e22f3b5abff47bdbd8376cc03dca1797e3d3
+- name: gcr.io/ml-pipeline/persistenceagent
+  newName: gcr.io/ml-pipeline/persistenceagent
+  newTag: 1.5.0-rc.2
+  digest: sha256:3203b540c23f8742cb7263e0e793f477b17c0341a77b9af57bbefb4fbc61d6a5
+- name: gcr.io/ml-pipeline/scheduledworkflow
+  newName: gcr.io/ml-pipeline/scheduledworkflow
+  newTag: 1.5.0-rc.2
+  digest: sha256:261443e5c60721aae21db8e4e3168d5c96c7189d4344d9b18b1df24d24a3b75e
+- name: gcr.io/ml-pipeline/frontend
+  newName: gcr.io/ml-pipeline/frontend
+  newTag: 1.5.0-rc.2
+  digest: sha256:33eaac741bad0c1499a4fb5e6fbcee2d844f2256a0fb2aeccc03b86ce287ba76
+- name: gcr.io/ml-pipeline/viewer-crd-controller
+  newName: gcr.io/ml-pipeline/viewer-crd-controller
+  newTag: 1.5.0-rc.2
+  digest: sha256:fdab82c270fbe1df8cc7c95f95946a12c4c58dc8609e24ecc05ac423d3a7775e
+- name: gcr.io/ml-pipeline/visualization-server
+  newName: gcr.io/ml-pipeline/visualization-server
+  newTag: 1.5.0-rc.2
+  digest: sha256:29f0e3b94a2c9ed6c5a9a790ee0d00154553cd81e2a242db135153cbd816b119
+- name: gcr.io/ml-pipeline/mysql
+  newName: gcr.io/ml-pipeline/mysql
+  newTag: "5.7"
+  digest: sha256:4056370ee427dc9ff2337884674d8ee35f5b236c543bb8446b8b0a3751f70349
+- name: gcr.io/ml-pipeline/workflow-controller
+  newName: gcr.io/ml-pipeline/workflow-controller
+  newTag: v2.12.9-license-compliance
+  digest: sha256:4f9d6feb608fc5a55cbae4f23b9489f63073ab06dd46d0e87fc5114cc01857e9
