@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kubeflow-onprem/ArgoFlow
+    repoURL: https://github.com/argoflow/argoflow
     targetRevision: HEAD
     path: kubeflow/notebooks/jupyter-web-app
     kustomize:
