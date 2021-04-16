@@ -24,7 +24,8 @@
       "description": "Group Cert Manager update",
       "matchPackagePatterns": ["^.*cert-manager.*"],
       "groupName": "cert-manager",
-      "additionalBranchPrefix": ""
+      "additionalBranchPrefix": "",
+      "pinDigests": true
     },
     {
       "description": "Group Argo CD update",
@@ -32,13 +33,13 @@
       "groupName": "argo-cd",
       "additionalBranchPrefix": ""
     },
-    {
-      "matchDatasources": [
-        "docker"
-      ],
-      "enabled": true,
-      "pinDigests": true
-    },
+    //{
+    //  "matchDatasources": [
+    //    "docker"
+    //  ],
+    //  "enabled": true,
+    //  "pinDigests": true
+    //},
     //{
     //  "matchDatasources": [
     //    "github-releases",
@@ -56,9 +57,9 @@
     }
   ],
   "separateMinorPatch": true,
-  "kustomize": {
-    "enabled": true,
-  },
+  //"kustomize": {
+  //  "enabled": true,
+  //},
   "regexManagers": [
     {
       "fileMatch": ["(^|/)kustomization.yaml$"],
@@ -73,6 +74,13 @@
           "- https:\/\/github\.com\/(?<depName>[^\/]+?\/[^\/]*?)\/releases\/download\/(?<currentValue>.*)\/.*.yaml"
         ],
       "datasourceTemplate": "github-tags"
+    },
+    {
+      "fileMatch": ["(^|/)kustomization.yaml$"],
+      "matchStrings": [
+          "newName:.(?<depName>.*[^\/]+?\/[^\/]*?)\n.*newTag:.(?<currentValue>.*)@(?<currentDigest>.*)"
+        ],
+      "datasourceTemplate": "docker"
     }
   ]
 }

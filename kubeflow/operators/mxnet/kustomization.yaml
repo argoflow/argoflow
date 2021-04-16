@@ -7,5 +7,4 @@ resources:
 images:
 - name: kubeflow/mxnet-operator
   newName: kubeflow/mxnet-operator
-  newTag: v1.1.0
-  digest: sha256:dd1c82c21692bb1cb600b5084e62adf06fb7883aa12c7b049a7ee37c9d4d4671
+  newTag: v1.1.0@sha256:dd1c82c21692bb1cb600b5084e62adf06fb7883aa12c7b049a7ee37c9d4d4671
