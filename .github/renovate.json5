@@ -32,13 +32,13 @@
       "groupName": "argo-cd",
       "additionalBranchPrefix": ""
     },
-    {
-      "matchDatasources": [
-        "docker"
-      ],
-      "enabled": true,
-      "pinDigests": true
-    },
+    //{
+    //  "matchDatasources": [
+    //    "docker"
+    //  ],
+    //  "enabled": true,
+    //  "pinDigests": true
+    //},
     //{
     //  "matchDatasources": [
     //    "github-releases",
@@ -74,5 +74,12 @@
         ],
       "datasourceTemplate": "github-tags"
     }
+    //{
+    //  "fileMatch": ["(^|/)kustomization.yaml$"],
+    //  "matchStrings": [
+    //      "newName:.(?<depName>.*[^\/]+?\/[^\/]*?)\n.*newTag:.(?<currentValue>.*)@(?<currentDigest>.*)"
+    //    ],
+    //  "datasourceTemplate": "docker"
+    //}
   ]
 }
