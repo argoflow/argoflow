@@ -21,5 +21,5 @@ images:
   digest: sha256:cda85f01dc9beec5b44087065ae6e71bfedddeaf0b0a6a3e67951284debfe342
 - name: quay.io/jetstack/cert-manager-webhook
   newName: quay.io/jetstack/cert-manager-webhook
-  newTag: v1.3.0
+  newTag: v1.3.1
   digest: sha256:414aba29f1428d0e6ab061dc0fac78f7db86ebedda5f45e2b28155f3d6a322fd
