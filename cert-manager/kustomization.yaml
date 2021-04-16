@@ -13,7 +13,7 @@ resources:
 images:
 - name: quay.io/jetstack/cert-manager-controller
   newName: quay.io/jetstack/cert-manager-controller
-  newTag: v1.3.0
+  newTag: v1.3.1
   digest: sha256:c5e61db0facc5fa63b310384f968e294414b976677b550ef5306cc410add2abc
 - name: quay.io/jetstack/cert-manager-cainjector
   newName: quay.io/jetstack/cert-manager-cainjector
