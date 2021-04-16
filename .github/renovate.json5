@@ -26,6 +26,12 @@
       "groupName": "cert-manager",
       "additionalBranchPrefix": ""
     },
+    {
+      "description": "Group Argo CD update",
+      "matchPackagePatterns": ["^.*argo[-]?cd.*"],
+      "groupName": "argo-cd",
+      "additionalBranchPrefix": ""
+    },
     //{
     //  "matchDatasources": [
     //    "docker"
