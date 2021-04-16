@@ -32,13 +32,13 @@
       "groupName": "argo-cd",
       "additionalBranchPrefix": ""
     },
-    //{
-    //  "matchDatasources": [
-    //    "docker"
-    //  ],
-    //  "enabled": true,
-    //  "pinDigests": true
-    //},
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "enabled": true,
+      "pinDigests": true
+    },
     //{
     //  "matchDatasources": [
     //    "github-releases",
