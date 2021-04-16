@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/jetstack/cert-manager/releases/download/v1.3.0/cert-manager.yaml
+- https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.yaml
 - kubeflow-self-signed-issuer.yaml
 # If you would like to setup a letsencrypt cluster issuer,
 # edit the `letsencrypt-cluster-issuer.yaml` with your details
