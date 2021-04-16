@@ -20,6 +20,12 @@
       ],
       "enabled": true
     },
+    {
+      "description": "Group Cert Manager update",
+      "matchPackagePatterns": ["^.*cert-manager.*"],
+      "groupName": "cert-manager",
+      "additionalBranchPrefix": ""
+    },
     //{
     //  "matchDatasources": [
     //    "docker"
