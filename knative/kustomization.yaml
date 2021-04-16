@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- serving-core-v0_22_0.yaml
+- net-istio-v0_22_0.yaml
+- eventing-core-v0_22_0.yaml # Eventing is optional
+
+images:
+- name: gcr.io/knative-releases/knative.dev/serving/cmd/activator
+  newName: gcr.io/knative-releases/knative.dev/serving/cmd/activator
+  digest: sha256:91e67a579378fa39d7c941e379db183464c3add3d53b4617f65d9cbc2f0c770a
+- name: gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler
+  newName: gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler
+  digest: sha256:761dc36210e69ebef3a64ce72ad9f54f8172e4aed6b97e8a706e3128956ec54d
+- name: gcr.io/knative-releases/knative.dev/serving/cmd/webhook
+  newName: gcr.io/knative-releases/knative.dev/serving/cmd/webhook
+  digest: sha256:268bd1383b56ba7b9acf391c681f7a63780c22dcd4555c2f4a7b61ec6da81cf4
+- name: gcr.io/knative-releases/knative.dev/serving/cmd/controller
+  newName: gcr.io/knative-releases/knative.dev/serving/cmd/controller
+  digest: sha256:d772809059033e437d6e98248a334ded37b6f430c2ca23377875cc2459a3b73e
+- name: gcr.io/knative-releases/knative.dev/net-istio/cmd/controller
+  newName: gcr.io/knative-releases/knative.dev/net-istio/cmd/controller
+  digest: sha256:17ee40a68cda50772375dcc4230efa99e7f8666a050ad2ffcd0338ff31c1bfaa
+- name: gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook
+  newName: gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook
+  digest: sha256:1da4b47f1778005b3cf07d384cac27c8c688628b9e7e631f15dd6ac3456c3039
+# Eventing is optional
+- name: gcr.io/knative-releases/knative.dev/eventing/cmd/controller
+  newName: gcr.io/knative-releases/knative.dev/eventing/cmd/controller
+  digest: sha256:b02cfc6d0858de1ae6d5d5acbe1ac2ed1c5411f2adcec417c2b113b3b3274e4a
+- name: gcr.io/knative-releases/knative.dev/eventing/cmd/webhook
+  newName: gcr.io/knative-releases/knative.dev/eventing/cmd/webhook
+  digest: sha256:5f037fe6755fb85fb0a155f9892c8519a058dbf395d2d04b2c6769ffd2d68950
+- name: gcr.io/knative-releases/knative.dev/eventing/cmd/mtping
+  newName: gcr.io/knative-releases/knative.dev/eventing/cmd/mtping
+  digest: sha256:ac30b62fa390b01c24a9bb891c4b8aa7a8c6c747a5182592d81af58d65eaa65c
