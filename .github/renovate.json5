@@ -20,6 +20,14 @@
       ],
       "enabled": true
     },
+    {
+      "description": "Group Cert Manager update",
+      "matchPackagePatterns": ["^.*cert-manager.*"],
+      //"matchDatasources": ["docker", "github-tags"],
+      "managers": ["kustomize", "regex"],
+      "groupName": "cert-manager",
+      "groupSlug": "cert-manager"
+    },
     //{
     //  "matchDatasources": [
     //    "docker"
