@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/kubeflow/components/crud-web-apps/jupyter/manifests/overlays/istio?ref=0214c7ab0480352d4757a9a6296051470c9878da # tag=v1.3.0-rc.0
+- github.com/kubeflow/kubeflow/components/crud-web-apps/jupyter/manifests/overlays/istio?ref=8901e3af3b83f599b89562162cdb2854f57082d3 # tag=v1.3.0-rc.1
 
 patchesStrategicMerge:
 - spawner_ui_config.yaml
