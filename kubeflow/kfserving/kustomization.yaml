@@ -8,4 +8,4 @@ images:
 - name: gcr.io/kfserving/kfserving-controller
   newName: gcr.io/kfserving/kfserving-controller
   newTag: v0.5.1
-  digest: sha256:321f35c2cd934d449f9e1308ca45a8c9a92190bec83a33b37a18a6b4b649506a
+  # digest: sha256:321f35c2cd934d449f9e1308ca45a8c9a92190bec83a33b37a18a6b4b649506a

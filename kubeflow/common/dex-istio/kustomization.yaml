@@ -12,4 +12,4 @@ images:
 - name: quay.io/dexidp/dex
   newName: ghcr.io/dexidp/dex
   newTag: v2.28.1
-  digest: sha256:5e88f2205de172b60fd7af23ac92f34321688a83de9f7de7c9a6f394f6950877
+  # digest: sha256:5e88f2205de172b60fd7af23ac92f34321688a83de9f7de7c9a6f394f6950877

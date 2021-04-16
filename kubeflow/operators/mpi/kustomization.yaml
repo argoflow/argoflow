@@ -8,4 +8,4 @@ images:
 - name: mpioperator/mpi-operator
   newName: mpioperator/mpi-operator
   newTag: latest
-  digest: sha256:547b161ee16991a49aca90cd2b1048a2d3dbc4af42f4b9d5947a4b76c618dad4
+  # digest: sha256:547b161ee16991a49aca90cd2b1048a2d3dbc4af42f4b9d5947a4b76c618dad4

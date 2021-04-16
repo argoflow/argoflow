@@ -8,4 +8,4 @@ images:
 - name: kubeflow/xgboost-operator
   newName: kubeflow/xgboost-operator
   newTag: v0.2.0
-  digest: sha256:7d7f956fe7bf58c12632e4d94a79f5ca801540c52b54d0a3f688b23a27bb56ea
+  # digest: sha256:7d7f956fe7bf58c12632e4d94a79f5ca801540c52b54d0a3f688b23a27bb56ea
