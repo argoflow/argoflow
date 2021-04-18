@@ -26,5 +26,5 @@ patchesStrategicMerge:
 images:
 - name: rook/ceph
   newName: rook/ceph
-  newTag: v1.5.9
+  newTag: v1.5.10
   # digest: sha256:2ae80a20563f1d90ce6e312af284fb11b8b60b6721b7eb8e65f5a728ecc21e54
