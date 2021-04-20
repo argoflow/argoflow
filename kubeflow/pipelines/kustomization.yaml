@@ -7,15 +7,15 @@ resources:
 images:
 - name: gcr.io/ml-pipeline/cache-deployer
   newName: gcr.io/ml-pipeline/cache-deployer
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:d2c0bb5141d8f16cc39cc900e1af2fabe024c0149dd26f512be474bff83b1101
 - name: gcr.io/ml-pipeline/cache-server
   newName: gcr.io/ml-pipeline/cache-server
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:b0beebd00ff5cfb387967094458c3f404c06126ffd91924dd884c08fe19ddea6
 - name: gcr.io/ml-pipeline/metadata-envoy
   newName: gcr.io/ml-pipeline/metadata-envoy
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:af0c0dc833da73486fe5f12d4c13181f9cfed2abc2ae0b2ab905815b4f5c9971
 - name: gcr.io/tfx-oss-public/ml_metadata_store_server
   newName: gcr.io/tfx-oss-public/ml_metadata_store_server
@@ -23,7 +23,7 @@ images:
   # digest: sha256:01691247116fe048e0761ae8033efaad3ddd82438d0198f2235afb37c1757d48
 - name: gcr.io/ml-pipeline/metadata-writer
   newName: gcr.io/ml-pipeline/metadata-writer
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:9a7ae82816db8e8b5f8d44ce97b04f75e99edfefecaf5b3f078bd0fa65aa067e
 - name: gcr.io/ml-pipeline/minio
   newName: gcr.io/ml-pipeline/minio
@@ -31,27 +31,27 @@ images:
   # digest: sha256:587abc14be9bbeed794473cf7290c40e377062f2f77f5e4e27742a77680f08e0
 - name: gcr.io/ml-pipeline/api-server
   newName: gcr.io/ml-pipeline/api-server
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:b67fd001e01c0bfc955c431bdcd4f34fa779880aa384627e164cb5408674f46a
 - name: gcr.io/ml-pipeline/persistenceagent
   newName: gcr.io/ml-pipeline/persistenceagent
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:570011e6e37812d5303ad99096687b2a5f539871ec8fc7b92d2a85ddccd74fea
 - name: gcr.io/ml-pipeline/scheduledworkflow
   newName: gcr.io/ml-pipeline/scheduledworkflow
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:2946f8401c04f171c73aa3c74ac907590e00780af983e816d1504845f38282c9
 - name: gcr.io/ml-pipeline/frontend
   newName: gcr.io/ml-pipeline/frontend
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:a5c10e4c732092029f564d4cc15ae8e1401f79b18100dc721f5fb7377e48bcd3
 - name: gcr.io/ml-pipeline/viewer-crd-controller
   newName: gcr.io/ml-pipeline/viewer-crd-controller
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:c5bdcdf176725d3bee9662c6b742727ca2b183245b5ba9a63e5375b43fb8eeb6
 - name: gcr.io/ml-pipeline/visualization-server
   newName: gcr.io/ml-pipeline/visualization-server
-  newTag: 1.5.0-rc.3
+  newTag: 1.5.0
   # digest: sha256:6b11817b99538e890f3632f3b0e7c69d8c40126c162449ff7710b32e7cf99499
 - name: gcr.io/ml-pipeline/mysql
   newName: gcr.io/ml-pipeline/mysql
