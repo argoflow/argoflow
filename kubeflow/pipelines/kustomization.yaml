@@ -19,7 +19,7 @@ images:
   # digest: sha256:af0c0dc833da73486fe5f12d4c13181f9cfed2abc2ae0b2ab905815b4f5c9971
 - name: gcr.io/tfx-oss-public/ml_metadata_store_server
   newName: gcr.io/tfx-oss-public/ml_metadata_store_server
-  newTag: 0.25.1
+  newTag: 0.30.0
   # digest: sha256:01691247116fe048e0761ae8033efaad3ddd82438d0198f2235afb37c1757d48
 - name: gcr.io/ml-pipeline/metadata-writer
   newName: gcr.io/ml-pipeline/metadata-writer
