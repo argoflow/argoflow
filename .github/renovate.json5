@@ -20,15 +20,21 @@
       "enabled": true
     },
     {
-      "description": "Group Cert Manager update",
+      "description": "Group Cert Manager Update",
       "matchPackagePatterns": ["^.*cert-manager.*"],
       "groupName": "cert-manager",
       "additionalBranchPrefix": ""
     },
     {
-      "description": "Group Argo CD update",
+      "description": "Group Argo CD Update",
       "matchPackagePatterns": ["^.*argo[-]?cd.*"],
       "groupName": "argo-cd",
+      "additionalBranchPrefix": ""
+    },
+    {
+      "description": "Rook Ceph Update",
+      "matchPackagePatterns": ["^.*rook\/(rook|ceph)"],
+      "groupName": "rook-ceph",
       "additionalBranchPrefix": ""
     },
     //{
@@ -72,6 +78,21 @@
           "- https:\/\/github\.com\/(?<depName>[^\/]+?\/[^\/]*?)\/releases\/download\/(?<currentValue>.*)\/.*.yaml"
         ],
       "datasourceTemplate": "github-tags"
+    },
+    {
+      "fileMatch": ["(^|/)kustomization.yaml$"],
+      "matchStrings": [
+          "- https:\/\/.*github.*\.com\/(?<depName>[^\/]+?\/[^\/]*?)\/(?<currentValue>.{6})\/.*.yaml"
+        ],
+      "datasourceTemplate": "github-tags"
+    },
+    // Update ceph/ceph image in Rook Cluster CR patch
+    {
+      "fileMatch": ["(^|/)cluster-patch.yaml$"],
+      "matchStrings": [
+          "image: (?<depName>[^\/]+?\/[^\/]*?)\:(?<currentValue>.*)"
+        ],
+      "datasourceTemplate": "docker"
     }
   ]
 }
