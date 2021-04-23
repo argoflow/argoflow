@@ -7,5 +7,5 @@ resources:
 images:
 - name: davidspek/kubeflow-pvcviewer-controller
   newName: davidspek/kubeflow-pvcviewer-controller
-  newTag: "0.6"
-  digest: sha256:54b0fba77e14fdb0cca39cf391e68f8f74e65775de2dc7f742bc7637aa8ce45a
+  newTag: "0.7"
+  # digest: sha256:54b0fba77e14fdb0cca39cf391e68f8f74e65775de2dc7f742bc7637aa8ce45a

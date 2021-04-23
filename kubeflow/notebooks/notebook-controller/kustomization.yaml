@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/kubeflow/components/notebook-controller/config/overlays/kubeflow?ref=0214c7ab0480352d4757a9a6296051470c9878da # tag=v1.3.0-rc.0
+- github.com/kubeflow/kubeflow/components/notebook-controller/config/overlays/kubeflow?ref=8901e3af3b83f599b89562162cdb2854f57082d3 # tag=v1.3.0-rc.1
 
 images:
 - name: public.ecr.aws/j1r0q0g6/notebooks/notebook-controller
   newName: public.ecr.aws/j1r0q0g6/notebooks/notebook-controller
-  newTag: v1.3.0-rc.0
+  newTag: v1.3.0-rc.1
