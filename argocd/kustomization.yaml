@@ -21,7 +21,7 @@ images:
   # digest: sha256:8d1d58ef963f615da97e0b2c54dbe243801d5e7198b98393ab36b7a5768f72a4
 - name: haproxy
   newName: haproxy
-  newTag: 2.0.20-alpine
+  newTag: 2.3.10-alpine
   # digest: sha256:61ddebc917f98e16a8c479f0fe90d01ed54c5f53ab7937449906f0a89b69e61e
 - name: redis
   newName: redis
