@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 # non-kubeflow
 # - argocd-applications/metallb.yaml
-- argocd-applications/rook-ceph.yaml
+# - argocd-applications/rook-ceph.yaml
 - argocd-applications/argocd.yaml
 - argocd-applications/kubeflow-roles-namespaces.yaml
 - argocd-applications/cert-manager.yaml
