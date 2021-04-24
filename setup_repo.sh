@@ -10,7 +10,10 @@ if [ -z "$1" ]
     else
         yq e -i ".spec.source.repoURL = \"$1\"" kubeflow.yaml
         for filename in ./argocd-applications/*.yaml; do
-            yq e -i ".spec.source.repoURL = \"$1\"" $filename
+            if [ $(yq e ".spec.source | has (\"helm\")" $filename) == false ]
+                then
+                    yq e -i ".spec.source.repoURL = \"$1\"" $filename
+            fi
         done
 fi
 
@@ -20,6 +23,9 @@ if [ -z "$2" ]
     else
         yq e -i ".spec.source.targetRevision = \"$2\"" kubeflow.yaml
         for filename in ./argocd-applications/*.yaml; do
-            yq e -i ".spec.source.targetRevision = \"$2\"" $filename
+            if [ $(yq e ".spec.source | has (\"helm\")" $filename) == false ]
+                then
+                    yq e -i ".spec.source.targetRevision = \"$2\"" $filename
+            fi
         done
 fi

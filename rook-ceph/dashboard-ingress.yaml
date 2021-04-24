@@ -13,7 +13,7 @@ spec:
   tls:
    - hosts:
      - rook-ceph.example.com
-     secretName: rook-ceph-abs-cloud-nl
+     secretName: rook-ceph-example-com
   rules:
   - host: rook-ceph.example.com
     http:
