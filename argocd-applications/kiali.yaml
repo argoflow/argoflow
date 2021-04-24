@@ -1,0 +1,72 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kiali
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kiali.org/helm-charts
+    targetRevision: 1.33.1
+    chart: kiali-operator
+    helm:
+     parameters:
+      - name : cr.create
+        value : "true"
+      - name : cr.namespace
+        value : "istio-system"
+      - name: cr.spec.api.namespaces.exclude[0]
+        value: "istio-operator"
+      - name: cr.spec.api.namespaces.exclude[1]
+        value: "kube-.*"
+      - name: cr.spec.api.namespaces.exclude[2]
+        value: "openshift.*"
+      - name: cr.spec.api.namespaces.exclude[3]
+        value: "ibm.*"
+      - name: cr.spec.api.namespaces.exclude[4]
+        value: "kiali-operator"
+      - name: cr.spec.deployment.override_ingress_yaml.spec.tls[0].hosts[0]
+        value: kiali.example.com
+      - name: cr.spec.deployment.override_ingress_yaml.spec.tls[0].secretName
+        value: kiali-abs-cloud-nl
+      - name: cr.spec.deployment.override_ingress_yaml.spec.rules[0].host
+        value: kiali.example.com
+      - name: cr.spec.deployment.override_ingress_yaml.spec.rules[0].http.paths[0].path
+        value: "/"
+      - name: cr.spec.deployment.override_ingress_yaml.spec.rules[0].http.paths[0].backend.serviceName
+        value: kiali
+      - name: cr.spec.deployment.override_ingress_yaml.spec.rules[0].http.paths[0].backend.servicePort
+        value: "20001"
+      - name: cr.spec.external_services.prometheus.url
+        value: http://kube-prometheus-stack-prometheus.monitoring:9090
+      - name: cr.spec.external_services.grafana.in_cluster_url
+        value: http://kube-prometheus-stack-grafana.monitoring:80
+      - name: cr.spec.external_services.grafana.dashboards[0].name
+        value: "Istio Service Dashboard"
+      - name: cr.spec.external_services.grafana.dashboards[0].variables.namespace
+        value: var-namespace
+      - name: cr.spec.external_services.grafana.dashboards[0].variables.service
+        value: var-service
+      - name: cr.spec.external_services.grafana.dashboards[1].name
+        value: "Istio Workload Dashboard"
+      - name: cr.spec.external_services.grafana.dashboards[1].variables.namespace
+        value: var-namespace
+      - name: cr.spec.external_services.grafana.dashboards[1].variables.service
+        value: var-service
+      - name: cr.spec.external_services.grafana.dashboards[2].name
+        value: "Kubernetes / API server"
+      - name: cr.spec.external_services.grafana.dashboards[2].variables.var-datasource
+        value: default
+      - name: cr.spec.external_services.grafana.dashboards[2].variables.var-cluster
+        value: ""
+      - name: cr.spec.external_services.grafana.dashboards[2].variables.var-instance
+        value: "All"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kiali-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-configmap-gitlab
+  namespace: ingress-nginx
+data:
+  "22": "gitlab/gitlab-gitlab-shell:22"

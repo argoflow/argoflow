@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/istio/istio'
+    targetRevision: HEAD
+    path: manifests/charts/istio-operator
+    helm:
+      parameters:
+      - name: hub
+        value: docker.io/istio
+      - name: tag
+        value: 1.9.3
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: istio-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

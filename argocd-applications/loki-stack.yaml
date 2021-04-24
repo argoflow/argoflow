@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 2.3.1
+    chart: loki-stack
+    helm:
+     parameters:
+      - name : loki.persistence.enabled
+        value : "true"
+      - name: loki.persistence.accessModes[0]
+        value: ReadWriteOnce
+      - name: loki.persistence.size
+        value: 30Gi
+      - name: loki.config.table_manager.retention_deletes_enabled
+        value: "true"
+      - name: loki.config.table_manager.retention_period
+        value: 168h
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

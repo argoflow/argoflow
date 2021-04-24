@@ -1,0 +1,12 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio
+spec:
+  profile: default
+  tag: 1.9.3
+  hub: docker.io/istio
+  meshConfig:
+    accessLogFile: /dev/stdout
+    enablePrometheusMerge: true

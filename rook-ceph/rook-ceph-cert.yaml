@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rook-ceph-example-com
+  namespace: rook-ceph
+spec:
+  secretName: rook-ceph-example-com
+  issuerRef:
+    name: kubeflow-self-signing-issuer
+    kind: ClusterIssuer
+  commonName: rook-ceph.example.com
+  dnsNames:
+    - rook-ceph.example.com

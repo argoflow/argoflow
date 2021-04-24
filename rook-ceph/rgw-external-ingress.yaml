@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-rgw-my-store-external
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/server-alias: "*.rgw.example.com"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      proxy_ssl_verify off;
+spec:
+  tls:
+   - hosts:
+     - rgw.example.com
+     secretName: rgw-abs-cloud-nl
+  rules:
+  - host: rgw.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rook-ceph-rgw-my-store
+          servicePort: 80

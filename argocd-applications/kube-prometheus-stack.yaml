@@ -1,0 +1,66 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 14.9.0
+    chart: kube-prometheus-stack
+    helm:
+     parameters:
+      - name : grafana.ingress.enabled
+        value : "true"
+      - name: grafana.ingress.hosts[0]
+        value: grafana.example.com
+      - name: grafana.ingress.tls[0].secretName
+        value: grafana-example-com
+      - name: grafana.ingress.tls[0].hosts[0]
+        value: grafana-example-com
+      - name: grafana.persistence.type
+        value: pvc
+      - name: grafana.persistence.enabled
+        value: "true"
+      - name: grafana.persistence.storageClassName
+        value: rook-ceph-block
+      - name: grafana.persistence.accessModes[0]
+        value: ReadWriteOnce
+      - name:  grafana.persistence.size
+        value: 20Gi
+      - name: grafana.grafana\.ini.server.root_url
+        value: https://grafana.example.com
+      - name: grafana.plugins[0]
+        value: vonage-status-panel
+      - name: grafana.sidecar.dashboards.provider.foldersFromFilesStructure
+        value: "true"
+      - name: grafana.sidecar.dashboards.folderAnnotation
+        value: k8s-sidecar-target-directory
+      - name: grafana.sidecar.dashboards.annotations.k8s-sidecar-target-directory
+        value: /tmp/dashboards/kubernetes
+      - name: grafana.grafana\.ini.auth\.anonymous.enabled
+        value: "true"
+      - name: grafana.grafana\.ini.auth\.anonymous.org_name
+        value: "Main Org."
+      - name: grafana.grafana\.ini.auth\.anonymous.org_role
+        value: Viewer
+      - name: grafana.grafana\.ini.security.allow_embedding
+        value: "true"
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName
+        value: rook-ceph-block
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.accessModes[0]
+        value: ReadWriteOnce
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage
+        value: 50Gi
+      - name: prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues
+        value: "false"
+      - name: prometheus.prometheusSpec.serviceMonitorSelector
+        value: ""
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
