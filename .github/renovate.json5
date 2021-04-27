@@ -93,6 +93,14 @@
           "image: (?<depName>[^\/]+?\/[^\/]*?)\:(?<currentValue>.*)"
         ],
       "datasourceTemplate": "docker"
+    },
+    // Update Istio CR and operator
+    {
+      "fileMatch": ["(^|/)istio-(spec|operator).yaml$"],
+      "matchStrings": [
+          "(tag:|value:) (?<currentValue>.*) # (?<depName>.*)"
+        ],
+      "datasourceTemplate": "docker"
     }
   ]
 }
