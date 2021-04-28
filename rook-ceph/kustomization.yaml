@@ -22,7 +22,7 @@ resources:
 - rook-rgw-cert.yaml
 - dashboard-ingress.yaml
 - rgw-external-ingress.yaml
-- monitoring/
+# - monitoring/
 
 patchesStrategicMerge:
 - cluster-patch.yaml
