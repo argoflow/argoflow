@@ -3,7 +3,7 @@
 This repository contains Kustomize manifests that point to the upstream
 manifest of each Kubeflow component and provides an easy way for people
 to change their deployment according to their need. ArgoCD application
-manifests for each componenet will be used to deploy Kubeflow. The intended
+manifests for each component will be used to deploy Kubeflow. The intended
 usage is for people to fork this repository, make their desired kustomizations,
 run a script to change the ArgoCD application specs to point to their fork
 of this repository, and finally apply a master ArgoCD application that will
@@ -18,6 +18,7 @@ Overview of the steps:
 - modify the kustomizations for your purpose
 - run `./setup_repo.sh <your_repo_fork_url>`
 - commit and push your changes
+- install ArgoCD
 - run `kubectl apply -f kubeflow.yaml`
 
 ## Folder setup
@@ -55,6 +56,7 @@ Overview of the steps:
 - kubectl (latest)
 - kustomize 4.0.5
 - docker (if using kind)
+- yq 4.x
 
 ## Quick Start using kind
 
@@ -125,7 +127,7 @@ Login with the username `admin` and the output of the following command as the p
 
 `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 
-### Deploy kubeflow
+### Deploy Kubeflow
 
 To deploy Kubeflow, execute the following command:
 
