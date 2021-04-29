@@ -7,5 +7,5 @@ resources:
 images:
 - name: davidspek/volumes-web-app
   newName: davidspek/volumes-web-app
-  newTag: "0.4"
+  newTag: "0.5.1"
   # digest: sha256:0b80a09e878f9dcdd530da7948155d532c61f7ad9ce854e7fa26440ade720d8c
