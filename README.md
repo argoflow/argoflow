@@ -143,7 +143,7 @@ Get the IP of the Kubeflow gateway with the following command:
 
 `kubectl get svc istio-ingressgateway -n istio-system`
 
-Login to Kubeflow with "email-address" `user` and password `12341234`
+Login to Kubeflow with "email-address" `user@kubeflow.org` and password `12341234`
 
 ### Remove kind cluster
 
