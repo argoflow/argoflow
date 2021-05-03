@@ -25,5 +25,5 @@ images:
   # digest: sha256:61ddebc917f98e16a8c479f0fe90d01ed54c5f53ab7937449906f0a89b69e61e
 - name: redis
   newName: redis
-  newTag: 6.2.1-alpine
+  newTag: 6.2.3-alpine
   # digest: sha256:85f11bc7bc6f247b8bc475ab48110076af9a251fcffd61c6b5d7b79a40c4604a
