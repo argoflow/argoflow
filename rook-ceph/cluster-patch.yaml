@@ -5,7 +5,7 @@ metadata:
   namespace: rook-ceph
 spec:
   cephVersion:
-    image: ceph/ceph:v16.2.2
+    image: ceph/ceph:v16.2.3
   resources:
     osd:
       limits:
