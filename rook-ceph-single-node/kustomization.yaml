@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/common.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/crds.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/operator.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-test.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/rbd/snapshotclass.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/cephfs/snapshotclass.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/object-test.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/storageclass-bucket-delete.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/filesystem-test.yaml
+- https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/cluster-test.yaml
+
+patchesStrategicMerge:
+- cluster-test-patch.yaml
+- set-default-storage.yaml
+
+images:
+- name: rook/ceph
+  newName: rook/ceph
+  newTag: v1.5.9
+  # digest: sha256:2ae80a20563f1d90ce6e312af284fb11b8b60b6721b7eb8e65f5a728ecc21e54
