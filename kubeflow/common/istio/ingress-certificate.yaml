@@ -5,8 +5,11 @@ metadata:
   namespace: istio-system
 spec:
   secretName: istio-ingressgateway-certs
+  # change the issuerRef name to ca-issuer if you want
+  # to use cert-manager with your own CA key pair
   issuerRef:
     name: kubeflow-self-signing-issuer
+    # name: ca-issuer
     kind: ClusterIssuer
   commonName: kubeflow.example.com
   dnsNames:
