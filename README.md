@@ -345,7 +345,7 @@ Volumes Web App.
 The `letsencrypt` HTTP-01 challenge is incompatible with using OIDC ([Link](https://www.jetstack.io/blog/istio-oidc/)). If your DNS server allows programmatic access, use the [DNS-01](https://cert-manager.io/docs/configuration/acme/dns01/) challenge solver instead.
 
 ### I am having problems getting the deployment to run on a cluster deployed with kubeadm and/or kubespray.
-The `kube-apiserver` needs additional arguments: `--service-account-issuer=kubernetes.default.svc` and `--service-account-signing-key-file=/etc/kubernetes/ssl/sa.key`. If your are using kubespray, add the following snipped to your `group_vars`:
+The `kube-apiserver` needs additional arguments if your are running a kubenetes version below the recomment version 1.20: `--service-account-issuer=kubernetes.default.svc` and `--service-account-signing-key-file=/etc/kubernetes/ssl/sa.key`. If your are using kubespray, add the following snipped to your `group_vars`:
 ```
 kube_kubeadm_apiserver_extra_args: 
   service-account-issuer: kubernetes.default.svc
