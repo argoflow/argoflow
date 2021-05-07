@@ -64,6 +64,10 @@
   "kustomize": {
     "enabled": true,
   },
+  // Update Argo CD application specs
+  "argocd": {
+      "fileMatch": ["argocd-applications/.+\\.yaml$"]
+  },
   "regexManagers": [
     {
       "fileMatch": ["(^|/)kustomization.yaml$"],
