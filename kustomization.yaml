@@ -29,15 +29,15 @@ resources:
 - argocd-applications/profile-controller_access-management.yaml
 - argocd-applications/tensorboard-controller.yaml
 - argocd-applications/tensorboards-web-app.yaml
-- argocd-applications/volumes-web-app.yaml
+# - argocd-applications/volumes-web-app.yaml
 - argocd-applications/tensorflow-operator.yaml
 - argocd-applications/pytorch-operator.yaml
 - argocd-applications/mpi-operator.yaml
 - argocd-applications/mxnet-operator.yaml
 - argocd-applications/xgboost-operator.yaml
 - argocd-applications/user-namespace.yaml
-# - argocd-applications/experimental-pvcviewer-controller.yaml
-# - argocd-applications/experimental-volumes-web-app.yaml
+- argocd-applications/experimental-pvcviewer-controller.yaml
+- argocd-applications/experimental-volumes-web-app.yaml
 # Monitoring and logging
 # - argocd-applications/monitoring-resources.yaml
 # - argocd-applications/kube-prometheus-stack.yaml
