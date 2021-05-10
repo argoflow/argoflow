@@ -5,7 +5,7 @@ metadata:
   namespace: rook-ceph
 spec:
   cephVersion:
-    image: ceph/ceph:v15.2.9
+    image: ceph/ceph:v16.2.1
   resources:
     osd:
       limits:
@@ -16,4 +16,4 @@ spec:
         memory: "4Gi"
   storage:
     useAllDevices: false
-    deviceFilter: ^nvme0n1  
+    deviceFilter: ^sd[b-c]

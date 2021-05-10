@@ -10,14 +10,20 @@ resources:
 - https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
 - https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
 - https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.0.0/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/rbd/snapshotclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/cephfs/snapshotclass.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/object.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/storageclass-bucket-delete.yaml
+# regular HA deployment
+- https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/object.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/filesystem.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/cluster.yaml
+# single node testing - not for production
+# - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-test.yaml
+# - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/object-test.yaml
+# - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/filesystem-test.yaml
+# - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/cluster-test.yaml
 - rook-ceph-cert.yaml
 - rook-rgw-cert.yaml
 - dashboard-ingress.yaml
@@ -25,8 +31,12 @@ resources:
 # - monitoring/
 
 patchesStrategicMerge:
-- cluster-patch.yaml
 - set-default-storage.yaml
+# regular HA deployment
+- cluster-patch.yaml
+# single node testing - not for production
+# - cluster-test-patch.yaml
+
 
 images:
 - name: rook/ceph
