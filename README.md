@@ -338,3 +338,24 @@ the [kubeflow.yaml](./kubeflow.yaml) file, you can edit the root
 [kustomization.yaml](./kustomization.yaml) and comment out the regular
 Volumes Web App and uncomment the PVCViewer Controller and Experimental
 Volumes Web App.
+
+## Troubleshooting
+
+### I can't get letsencrypt to work. The cert-manager logs show 404 errors.
+The `letsencrypt` HTTP-01 challenge is incompatible with using OIDC ([Link](https://www.jetstack.io/blog/istio-oidc/)). If your DNS server allows programmatic access, use the [DNS-01](https://cert-manager.io/docs/configuration/acme/dns01/) challenge solver instead.
+
+### I am having problems getting the deployment to run on a cluster deployed with kubeadm and/or kubespray.
+The `kube-apiserver` needs additional arguments if your are running a kubenetes version below the recommended version 1.20: `--service-account-issuer=kubernetes.default.svc` and `--service-account-signing-key-file=/etc/kubernetes/ssl/sa.key`.
+
+If your are using kubespray, add the following snipped to your `group_vars`:
+```
+kube_kubeadm_apiserver_extra_args: 
+  service-account-issuer: kubernetes.default.svc
+  service-account-signing-key-file: /etc/kubernetes/ssl/sa.key
+```
+### I have unbound PVCs with rook-ceph.
+Note that the rook deployment shipped with ArgoFlow requires a HA setup with at least 3 nodes.
+
+Make sure, that there is a clean partition or drive available for rook to use. 
+
+Change the `deviceFilter` in [cluster-patch.yaml](./rook-ceph/cluster-patch.yaml) to match the drives you want to use. For `nvme` drives change the filter to `^nvme[0-9]`. In case your have previously deployed rook on any of the disks, format them, remove the folder `/var/lib/rook` on all nodes, and reboot. Alternatively, follow the [rook-ceph disaster recover guide](https://github.com/rook/rook/blob/master/Documentation/ceph-disaster-recovery.md) to adopt an existing rook-ceph cluster.

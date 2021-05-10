@@ -24,6 +24,7 @@ resources:
 # - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/object-test.yaml
 # - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/filesystem-test.yaml
 # - https://raw.githubusercontent.com/rook/rook/v1.6.1/cluster/examples/kubernetes/ceph/cluster-test.yaml
+
 - rook-ceph-cert.yaml
 - rook-rgw-cert.yaml
 - dashboard-ingress.yaml
@@ -41,5 +42,5 @@ patchesStrategicMerge:
 images:
 - name: rook/ceph
   newName: rook/ceph
-  newTag: v1.6.1
+  newTag: v1.6.2
   # digest: sha256:2ae80a20563f1d90ce6e312af284fb11b8b60b6721b7eb8e65f5a728ecc21e54
