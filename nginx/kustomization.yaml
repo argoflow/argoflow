@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
 - github.com/kubernetes/ingress-nginx/deploy/static/provider/cloud?ref=controller-v0.45.0
-- gitlab-tcp-configmap.yaml
+# - gitlab-tcp-configmap.yaml
 
 patchesStrategicMerge:
 - deployment_patch.yaml
-- gitlab-service-patch.yaml
+# - gitlab-service-patch.yaml

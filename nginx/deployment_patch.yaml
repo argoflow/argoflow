@@ -26,4 +26,4 @@ spec:
         - --validating-webhook-certificate=/usr/local/certificates/cert
         - --validating-webhook-key=/usr/local/certificates/key
         - --enable-ssl-passthrough
-        - --tcp-services-configmap=gitlab/tcp-configmap-gitlab
+        # - --tcp-services-configmap=gitlab/tcp-configmap-gitlab
