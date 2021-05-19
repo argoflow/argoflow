@@ -9,6 +9,12 @@ resources:
 # see: https://cert-manager.io/docs/configuration/acme/#configuration
 # and uncomment the following line
 # - letsencrypt-cluster-issuer.yaml
+# If you would like to setup your own CA cluster issuer, generate a new key pair or use an
+# existing one. Save the keys as a secret according to
+# https://docs.cert-manager.io/en/release-0.11/tasks/issuers/setup-ca.html. Change
+# the issuerRef name in kubeflow/common/istio/ingress-certificate.yaml to
+# "ca-issuer" and uncomment the following line@ 
+# - ca-issuer.yaml
 
 images:
 - name: quay.io/jetstack/cert-manager-controller

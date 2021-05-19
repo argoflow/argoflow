@@ -5,6 +5,7 @@ resources:
 # non-kubeflow
 # - argocd-applications/metallb.yaml
 # - argocd-applications/rook-ceph.yaml
+# - argocd-applications/rook-ceph-single-node.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
 - argocd-applications/argocd.yaml
