@@ -1,0 +1,2689 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "kube-score",
+          "rules": [
+            {
+              "id": "service-targets-pod",
+              "name": "Service Targets Pod"
+            },
+            {
+              "id": "container-resources",
+              "name": "Container Resources"
+            },
+            {
+              "id": "pod-networkpolicy",
+              "name": "Pod NetworkPolicy"
+            },
+            {
+              "id": "container-security-context",
+              "name": "Container Security Context"
+            },
+            {
+              "id": "deployment-has-poddisruptionbudget",
+              "name": "Deployment has PodDisruptionBudget"
+            },
+            {
+              "id": "container-image-pull-policy",
+              "name": "Container Image Pull Policy"
+            },
+            {
+              "id": "pod-probes",
+              "name": "Pod Probes"
+            },
+            {
+              "id": "statefulset-has-poddisruptionbudget",
+              "name": "StatefulSet has PodDisruptionBudget"
+            },
+            {
+              "id": "statefulset-has-servicename",
+              "name": "StatefulSet has ServiceName"
+            },
+            {
+              "id": "deployment-has-host-podantiaffinity",
+              "name": "Deployment has host PodAntiAffinity"
+            }
+          ]
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "kube-score"
+          }
+        },
+        "invocation": {
+          "endTimeUtc": "0001-01-01T00:00:00Z",
+          "workingDirectory": {},
+          "executionSuccessful": true
+        }
+      },
+      "properties": {},
+      "results": [
+        {
+          "message": {
+            "text": "The services selector does not match any pods"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3482
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "service-targets-pod"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "No matching PodDisruptionBudget was found"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3902
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "deployment-has-poddisruptionbudget"
+        },
+        {
+          "message": {
+            "text": "The services selector does not match any pods"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3536
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "service-targets-pod"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "Container has the same readiness and liveness probe"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-probes"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "No matching PodDisruptionBudget was found"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 4080
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "statefulset-has-poddisruptionbudget"
+        },
+        {
+          "message": {
+            "text": "Container has no configured security context"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "No matching PodDisruptionBudget was found"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3787
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "deployment-has-poddisruptionbudget"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "Container has the same readiness and liveness probe"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-probes"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "StatefulSet does not have a valid serviceName"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3997
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "statefulset-has-servicename"
+        },
+        {
+          "message": {
+            "text": "The services selector does not match any pods"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3509
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "service-targets-pod"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "Container is missing a readinessProbe"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-probes"
+        },
+        {
+          "message": {
+            "text": "Container has no configured security context"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "Container has no configured security context"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Deployment does not have a host podAntiAffinity set"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "deployment-has-host-podantiaffinity"
+        },
+        {
+          "message": {
+            "text": "No matching PodDisruptionBudget was found"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3644
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "deployment-has-poddisruptionbudget"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory limit is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "CPU request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "Memory request is not set"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-resources"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "ImagePullPolicy is not set to Always"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-image-pull-policy"
+        },
+        {
+          "message": {
+            "text": "The pod does not have a matching NetworkPolicy"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-networkpolicy"
+        },
+        {
+          "message": {
+            "text": "Container has the same readiness and liveness probe"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "pod-probes"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The pod has a container with a writable root filesystem"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container is running with a low user ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "The container running with a low group ID"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "container-security-context"
+        },
+        {
+          "message": {
+            "text": "No matching PodDisruptionBudget was found"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {}
+                },
+                "artifactLocation": {
+                  "uri": "file:///mnt/c/Users/David van der Spek/Documents/GitHub/argoflow/testing/argocd.yaml"
+                },
+                "contextRegion": {
+                  "snippet": {},
+                  "startLine": 3702
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "deployment-has-poddisruptionbudget"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}
