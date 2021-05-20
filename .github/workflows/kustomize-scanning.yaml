@@ -38,8 +38,8 @@ jobs:
         continue-on-error: true
         run: |
           kustomize build argocd > testing/argocd.yaml
-          kube-score score --output-format sarif testing/argocd.yaml | tee testing/argocd.sarif && \
-          yq eval -i -P -j '.runs[0].conversion.tool.driver.name = "kube-score" | .runs[0].conversion.invocation.executionSuccessful = true' testing/argocd.sarif
+          # kube-score score --output-format sarif testing/argocd.yaml | tee testing/argocd.sarif && \
+          # yq eval -i -P -j '.runs[0].conversion.tool.driver.name = "kube-score" | .runs[0].conversion.invocation.executionSuccessful = true' testing/argocd.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
         with:
