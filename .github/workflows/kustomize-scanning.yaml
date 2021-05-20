@@ -37,9 +37,10 @@ jobs:
       - name: Test tools
         continue-on-error: true
         run: |
-          kustomize build argocd > testing/argocd.yaml
-          # kube-score score --output-format sarif testing/argocd.yaml | tee testing/argocd.sarif && \
-          # yq eval -i -P -j '.runs[0].conversion.tool.driver.name = "kube-score" | .runs[0].conversion.invocation.executionSuccessful = true' testing/argocd.sarif
+          kustomize build argocd > testing/argocd.yaml && \
+          kube-score score --output-format sarif testing/argocd.yaml | tee testing/argocd.sarif && \
+          yq eval -i -P -j '.runs[0].conversion.tool.driver.name = "kube-score" | .runs[0].conversion.invocation.executionSuccessful = true' testing/argocd.sarif && \
+          for i in $(seq 0 $(($(yq eval '.runs[0].results | length' testing/argocd.sarif) - 1))); do yq -i -P -j eval ".runs[0].results[$i].locations[0].physicalLocation.region.startLine = $(yq eval \".runs[0].results[$i].locations[0].physicalLocation.contextRegion.startLine\" testing/argocd.sarif)" testing/argocd.sarif; done
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
         with:
