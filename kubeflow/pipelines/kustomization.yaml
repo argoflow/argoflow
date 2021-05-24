@@ -11,7 +11,7 @@ images:
   # digest: sha256:d2c0bb5141d8f16cc39cc900e1af2fabe024c0149dd26f512be474bff83b1101
 - name: gcr.io/ml-pipeline/cache-server
   newName: gcr.io/ml-pipeline/cache-server
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:b0beebd00ff5cfb387967094458c3f404c06126ffd91924dd884c08fe19ddea6
 - name: gcr.io/ml-pipeline/metadata-envoy
   newName: gcr.io/ml-pipeline/metadata-envoy
