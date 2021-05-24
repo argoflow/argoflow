@@ -15,7 +15,7 @@ images:
   # digest: sha256:b0beebd00ff5cfb387967094458c3f404c06126ffd91924dd884c08fe19ddea6
 - name: gcr.io/ml-pipeline/metadata-envoy
   newName: gcr.io/ml-pipeline/metadata-envoy
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:af0c0dc833da73486fe5f12d4c13181f9cfed2abc2ae0b2ab905815b4f5c9971
 - name: gcr.io/tfx-oss-public/ml_metadata_store_server
   newName: gcr.io/tfx-oss-public/ml_metadata_store_server
