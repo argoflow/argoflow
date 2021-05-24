@@ -7,7 +7,7 @@ resources:
 images:
 - name: gcr.io/ml-pipeline/cache-deployer
   newName: gcr.io/ml-pipeline/cache-deployer
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:d2c0bb5141d8f16cc39cc900e1af2fabe024c0149dd26f512be474bff83b1101
 - name: gcr.io/ml-pipeline/cache-server
   newName: gcr.io/ml-pipeline/cache-server
