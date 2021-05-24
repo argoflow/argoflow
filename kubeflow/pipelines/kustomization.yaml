@@ -23,7 +23,7 @@ images:
   # digest: sha256:01691247116fe048e0761ae8033efaad3ddd82438d0198f2235afb37c1757d48
 - name: gcr.io/ml-pipeline/metadata-writer
   newName: gcr.io/ml-pipeline/metadata-writer
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:9a7ae82816db8e8b5f8d44ce97b04f75e99edfefecaf5b3f078bd0fa65aa067e
 - name: gcr.io/ml-pipeline/minio
   newName: gcr.io/ml-pipeline/minio
