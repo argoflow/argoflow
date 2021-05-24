@@ -37,6 +37,12 @@
       "groupName": "rook-ceph",
       "additionalBranchPrefix": ""
     },
+    {
+      "description": "Group Kubeflow Pipelines update",
+      "matchPackagePatterns": ["^(kubeflow|gcr.io)\/(ml-|tfx-oss-public\/ml_metadata_store_server)?(pipeline)?.*"],
+      "groupName": "kubeflow-pipelines",
+      "additionalBranchPrefix": ""
+    },
     //{
     //  "matchDatasources": [
     //    "docker"
