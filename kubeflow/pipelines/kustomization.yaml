@@ -43,7 +43,7 @@ images:
   # digest: sha256:2946f8401c04f171c73aa3c74ac907590e00780af983e816d1504845f38282c9
 - name: gcr.io/ml-pipeline/frontend
   newName: gcr.io/ml-pipeline/frontend
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:a5c10e4c732092029f564d4cc15ae8e1401f79b18100dc721f5fb7377e48bcd3
 - name: gcr.io/ml-pipeline/viewer-crd-controller
   newName: gcr.io/ml-pipeline/viewer-crd-controller
