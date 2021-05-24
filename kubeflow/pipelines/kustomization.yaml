@@ -35,7 +35,7 @@ images:
   # digest: sha256:b67fd001e01c0bfc955c431bdcd4f34fa779880aa384627e164cb5408674f46a
 - name: gcr.io/ml-pipeline/persistenceagent
   newName: gcr.io/ml-pipeline/persistenceagent
-  newTag: 1.5.0
+  newTag: 1.6.0
   # digest: sha256:570011e6e37812d5303ad99096687b2a5f539871ec8fc7b92d2a85ddccd74fea
 - name: gcr.io/ml-pipeline/scheduledworkflow
   newName: gcr.io/ml-pipeline/scheduledworkflow
