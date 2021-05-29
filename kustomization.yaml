@@ -8,11 +8,8 @@ resources:
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
 - argocd-applications/argocd.yaml
-# - argocd-applications/istio.yaml
-# to use upstream istio comment out line above
-# and uncomment the next two line
-- argocd-applications/istio-upstream.yaml
 - argocd-applications/istio-operator.yaml
+- argocd-applications/istio.yaml
 # kubeflow
 - argocd-applications/kubeflow-roles-namespaces.yaml
 - argocd-applications/cert-manager.yaml

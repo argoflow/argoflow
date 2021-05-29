@@ -8,12 +8,15 @@ spec:
   source:
     repoURL: https://github.com/argoflow/argoflow
     targetRevision: HEAD
-    path: kubeflow/common/istio
+    path: istio
     kustomize:
       version: v4.0.5
   destination:
     server: https://kubernetes.default.svc
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
