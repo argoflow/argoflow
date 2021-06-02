@@ -2,17 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-# non-kubeflow
-# - argocd-applications/metallb.yaml
-# - argocd-applications/rook-ceph.yaml
-# - argocd-applications/nginx.yaml
-# - argocd-applications/nvidia-gpu-operator.yaml
+# argo
 - argocd-applications/argocd.yaml
-- argocd-applications/istio-operator.yaml
-- argocd-applications/istio.yaml
 # kubeflow
 - argocd-applications/kubeflow-roles-namespaces.yaml
-- argocd-applications/cert-manager.yaml
 - argocd-applications/oidc-authservice.yaml
 - argocd-applications/dex-istio.yaml
 - argocd-applications/knative.yaml
@@ -33,10 +26,19 @@ resources:
 - argocd-applications/mxnet-operator.yaml
 - argocd-applications/xgboost-operator.yaml
 - argocd-applications/user-namespace.yaml
+# kubeflow (experimental)
 # - argocd-applications/experimental-pvcviewer-controller.yaml
 # - argocd-applications/experimental-volumes-web-app.yaml
-# Monitoring and logging
+# disabled (provided by cloud native)
+# - argocd-applications/cert-manager.yaml
+# - argocd-applications/istio-operator.yaml
+# - argocd-applications/istio.yaml
+# - argocd-applications/kiali.yaml
 # - argocd-applications/monitoring-resources.yaml
 # - argocd-applications/kube-prometheus-stack.yaml
+# disabled (not in use at the moment)
 # - argocd-applications/loki-stack.yaml
-# - argocd-applications/kiali.yaml
+# - argocd-applications/nginx.yaml
+# - argocd-applications/nvidia-gpu-operator.yaml
+# - argocd-applications/metallb.yaml
+# - argocd-applications/rook-ceph.yaml
