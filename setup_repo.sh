@@ -54,7 +54,7 @@ kubectl create secret generic -n monitoring grafana-admin-secret --from-literal=
 
 # External OIDC setup
 
-echo "Do you want to setup an external OIDC client?"
+echo "Do you want to setup an external OIDC client rather than using an on-cluster provider?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes )
@@ -68,7 +68,7 @@ done
 
 # Cloudflare setup
 
-echo "Do you want to setup an external OIDC client?"
+echo "Do you want to setup CloudFlare with cert-manager and External DNS?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes )
