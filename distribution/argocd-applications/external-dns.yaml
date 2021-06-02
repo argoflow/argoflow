@@ -26,6 +26,10 @@ spec:
         value: 100m
       - name: resources.requests.memory
         value: 300Mi
+      - name: provider
+        value: cloudflare
+      - name: cloudflare.secretName
+        value: cloudflare-api-token-secret
       - name: sources[0]
         value: service
       - name: sources[1]

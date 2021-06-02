@@ -74,7 +74,7 @@ select yn in "Yes" "No"; do
         Yes )
           read -p 'CloudFlare API Token: ' CLOUDFLARE_API_TOKEN
           kubectl create secret generic -n cert-manager cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-cert-manager.yaml
-          kubectl create secret generic -n kube-system cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-external-dns.yaml
+          kubectl create secret generic -n kube-system cloudflare-api-token-secret --from-literal=cloudflare_api_token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-external-dns.yaml
           break;;
         No ) exit;;
     esac
