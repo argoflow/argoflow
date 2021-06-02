@@ -1,0 +1,59 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oauth2-proxy
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: oauth2-proxy
+    helm:
+      parameters:
+      - name: image.repository
+        value: quay.io/oauth2-proxy/oauth2-proxy
+      - name: image.tag
+        value: v7.1.3
+      - name: configSecret.create
+        value: "false"
+      - name: config.existingSecret
+        value: oauth2-proxy
+      - name: service.port
+        value: "4180"
+      - name: extraArgs.provider
+        value: keycloak
+      - name: extraArgs.set-xauthrequest
+        value: "true"
+      - name: extraArgs.cookie-secure
+        value: "true"
+      - name: extraArgs.cookie-samesite
+        value: lax
+      - name: extraArgs.cookie-refresh
+        value: 1h
+      - name: extraArgs.cookie-expire
+        value: 4h
+      - name: extraArgs.cookie-name
+        value: _oauth2_proxy
+      - name: extraArgs.email-domain
+        value: "*"
+      - name: extraArgs.upstream
+        value: "static://200"
+      - name: extraArgs.skip-provider-button
+        value: "true"
+      - name: extraArgs.cookie-domain
+        value: .<<__domain__>>
+      - name: extraArgs.whitelist-domain
+        value: .<<__domain__>>
+      - name: extraArgs.login-url
+        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/auth"
+      - name: extraArgs.redeem-url
+        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/token"
+      - name: extraArgs.profile-url
+        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+      - name: extraArgs.validate-url
+        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+      - name: extraArgs.scope
+        value: email
+      - name: extraArgs.scope
+        value: profile
+      - name: extraArgs.scope
+        value: openid

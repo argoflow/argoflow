@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: oauth2-proxy-logout
+  namespace: auth
+spec:
+  gateways:
+  - kubeflow/kubeflow-gateway
+  hosts:
+  - <<__subdomain_dashboard__>>.<<__domain__>>
+  http:
+  - match:
+    - uri:
+        prefix: /logout
+    rewrite:
+      uri: "/oauth2/sign_out"
+    route:
+    - destination:
+        host: oauth2-proxy.auth.svc.cluster.local
+        port:
+          number: 4180

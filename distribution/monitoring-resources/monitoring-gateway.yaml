@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: monitoring-gateway
+  namespace: monitoring
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - <<__subdomain_grafana__>>.<<__domain__>>
+    - <<__subdomain_kiali__>>.<<__domain__>>
+    - <<__subdomain_kubecost__>>.<<__domain__>>
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+    # Upgrade HTTP to HTTPS
+    tls:
+      httpsRedirect: true
+  - hosts:
+    - <<__subdomain_grafana__>>.<<__domain__>>
+    - <<__subdomain_kiali__>>.<<__domain__>>
+    - <<__subdomain_kubecost__>>.<<__domain__>>
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: monitoring-ingressgateway-certs

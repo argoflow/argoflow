@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: auth-gateway
+  namespace: auth
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - <<__subdomain_auth__>>.<<__domain__>>
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+    # Upgrade HTTP to HTTPS
+    tls:
+      httpsRedirect: true
+  - hosts:
+    - <<__subdomain_auth__>>.<<__domain__>>
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: auth-ingressgateway-certs

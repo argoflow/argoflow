@@ -1,0 +1,83 @@
+{
+    "id": "kubeflow",
+    "realm": "kubeflow",
+    "displayName": "Kubeflow Realm",
+    "enabled": true,
+    "sslRequired": "external",
+    "registrationAllowed": false,
+    "requiredCredentials": [ "password" ],
+    "users" : [
+        {
+            "username" : "",
+            "enabled": true,
+            "email" : "",
+            "firstName": "",
+            "lastName": "",
+            "credentials" : [
+                { "type" : "password",
+                  "value" : "" }
+            ],
+            "realmRoles": [ "user" ],
+            "clientRoles": {
+                "account": ["view-profile", "manage-account"]
+            }
+        }
+    ],
+    "roles" : {
+        "realm" : [
+            {
+                "name": "user",
+                "description": "User privileges",
+                "composite": true,
+                "composites": {
+                "realm": [
+                    "offline_access",
+                    "uma_authorization"
+                ],
+                "client": {
+                    "account": [
+                    "manage-account",
+                    "view-profile"
+                    ]
+                }
+                },
+                "clientRole": false,
+                "containerId": "kubeflow",
+                "attributes": {}
+            },
+            {
+                "name": "uma_authorization",
+                "description": "${role_uma_authorization}",
+                "composite": false,
+                "clientRole": false,
+                "containerId": "kubeflow",
+                "attributes": {}
+              },
+              {
+                "name": "offline_access",
+                "description": "${role_offline-access}",
+                "composite": false,
+                "clientRole": false,
+                "containerId": "kubeflow",
+                "attributes": {}
+              }
+        ]
+    },
+    "clients": [
+        {
+            "id": "56185130-63f4-441f-b618-f471e7baac6d",
+            "clientId": "",
+            "name": "Oauth2 Proxy",
+            "surrogateAuthRequired": false,
+            "enabled": true,
+            "alwaysDisplayInConsole": false,
+            "clientAuthenticatorType": "client-secret",
+            "secret": "",
+            "redirectUris": [
+                "https://<<__subdomain_dashboard__>>.<<__domain__>>",
+                "https://<<__subdomain_dashboard__>>.<<__domain__>>/oauth2/callback"
+            ],
+            "webOrigins": []
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+  
+branch: master
+plugins:
+- - "@semantic-release/commit-analyzer"
+  - preset: eslint
+    releaseRules:
+    - tag: MAJOR
+      release: major
+    - tag: MINOR
+      release: minor
+    - tag: PATCH
+      release: patch
+- - "@semantic-release/release-notes-generator"
+  - preset: eslint
+    releaseRules:
+    - tag: MAJOR
+      release: major
+    - tag: MINOR
+      release: minor
+    - tag: PATCH
+      release: patch
+- - "@semantic-release/changelog"
+  - changelogFile: CHANGELOG.md
+- "@semantic-release/github"
+- - "@semantic-release/git"
+  - assets:
+    - package.json
+    - CHANGELOG.md
+    message: |-
+      chore(release): ${nextRelease.version} [skip ci]
+
+      ${nextRelease.notes}

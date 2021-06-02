@@ -338,7 +338,7 @@ to an active Notebook Server.
 
 Here is an example of the PVC Viewer in action:
 
-![PVCViewer in action](./images/vwa-pvcviewer-demo.gif)
+![PVCViewer in action](./docs/images/vwa-pvcviewer-demo.gif)
 
 To use the PVCViewer Controller, it must be deployed along with an updated version
 of the Volumes Web App. To do so, deploy

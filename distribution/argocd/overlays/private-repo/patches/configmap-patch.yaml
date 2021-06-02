@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  repositories: |
+    - url: <<__git_repo.url__>>
+      passwordSecret:
+        name: git-repo-secret
+        key: HTTPS_PASSWORD
+      usernameSecret:
+        name: git-repo-secret
+        key: HTTPS_USERNAME

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlflow
+  labels:
+    app: mlflow
+  namespace: mlflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlflow
+  template:
+    metadata:
+      labels:
+        app: mlflow
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+        - name: mlflow
+          securityContext: {}
+          image: "public.ecr.aws/atcommons/mlflow-server:latest"
+          imagePullPolicy: Always
+          args:
+            - --host=0.0.0.0
+            - --port=5000
+            - --backend-store-uri="mysql://$(RDS_USERNAME):$(RDS_PASSWORD)@$(RDS_HOST):3306/$(DB_NAME)"
+            - --default-artifact-root=s3://$(ARTIFACT_S3_BUCKET)/$(ARTIFACT_S3_KEY_PREFIX)
+          envFrom:
+            - secretRef:
+                name: mlflow-secret
+            - configMapRef:
+                name: mlflow-config
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources: {}
