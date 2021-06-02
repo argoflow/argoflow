@@ -45,19 +45,14 @@ yq eval -i ".data.ADMIN = \"${EMAIL}\"" ${DISTRIBUTION_PATH}/kubeflow/notebooks/
 yq eval ".staticClients[0].id = \"${OIDC_CLIENT_ID}\" | .staticClients[0].secret = \"${OIDC_CLIENT_SECRET}\" | .staticPasswords[0].hash = \"${ADMIN_PASS_DEX}\" | .staticPasswords[0].email = \"${EMAIL}\" | .staticPasswords[0].username = \"${USERNAME}\"" ${DISTRIBUTION_PATH}/oidc-auth/overlays/dex/dex-config-template.yaml | kubectl create secret generic -n auth dex-config --dry-run=client --from-file=config.yaml=/dev/stdin -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/oidc-auth/overlays/dex/dex-config-secret.yaml
 yq eval -j -P ".users[0].username = \"${USERNAME}\" | .users[0].email = \"${EMAIL}\" | .users[0].firstName = \"${FIRSTNAME}\" | .users[0].lastName = \"${LASTNAME}\" | .users[0].credentials[0].value = \"${ADMIN_PASS}\" | .clients[0].clientId = \"${OIDC_CLIENT_ID}\" | .clients[0].secret = \"${OIDC_CLIENT_SECRET}\"" ${DISTRIBUTION_PATH}/oidc-auth/overlays/keycloak/kubeflow-realm-template.json | kubectl create secret generic -n auth kubeflow-realm --dry-run=client --from-file=kubeflow-realm.json=/dev/stdin -o json | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/oidc-auth/overlays/keycloak/kubeflow-realm-secret.yaml
 
-# Cloudflare setup
-
-read -p 'CloudFlare API Token: ' CLOUDFLARE_API_TOKEN
-
-kubectl create secret generic -n cert-manager cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-cert-manager.yaml
-kubectl create secret generic -n kube-system cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-external-dns.yaml
-
 # Monitoring setup
 
 read -p 'Grafana Admin Username: ' GRAFANA_ADMIN_USERNAME
 read -p 'Grafana Admin Password: ' GRAFANA_ADMIN_PASS
 
 kubectl create secret generic -n monitoring grafana-admin-secret --from-literal=admin-user=${GRAFANA_ADMIN_USERNAME} --from-literal=admin-password=${GRAFANA_ADMIN_PASS} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/monitoring-resources/grafana-admin-secret.yaml
+
+# External OIDC setup
 
 echo "Do you want to setup an external OIDC client?"
 select yn in "Yes" "No"; do
@@ -70,6 +65,22 @@ select yn in "Yes" "No"; do
         No ) exit;;
     esac
 done
+
+# Cloudflare setup
+
+echo "Do you want to setup an external OIDC client?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes )
+          read -p 'CloudFlare API Token: ' CLOUDFLARE_API_TOKEN
+          kubectl create secret generic -n cert-manager cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-cert-manager.yaml
+          kubectl create secret generic -n kube-system cloudflare-api-token-secret --from-literal=api-token=${CLOUDFLARE_API_TOKEN} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/cloudflare-secrets/cloudflare-api-token-secret-external-dns.yaml
+          break;;
+        No ) exit;;
+    esac
+done
+
+# Private repo setup
 
 echo "Are you using a private repo"
 select yn in "Yes" "No"; do
