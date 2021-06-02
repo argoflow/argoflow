@@ -58,3 +58,27 @@ read -p 'Grafana Admin Username: ' GRAFANA_ADMIN_USERNAME
 read -p 'Grafana Admin Password: ' GRAFANA_ADMIN_PASS
 
 kubectl create secret generic -n monitoring grafana-admin-secret --from-literal=admin-user=${GRAFANA_ADMIN_USERNAME} --from-literal=admin-password=${GRAFANA_ADMIN_PASS} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/monitoring-resources/grafana-admin-secret.yaml
+
+echo "Do you want to setup an external OIDC client?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes )
+          read -p 'OIDC Client ID: ' OIDC_CLIENT_ID_INPUT
+          read -p 'OIDC Client Secret: ' OIDC_CLIENT_SECRET_INPUT
+          kubectl create secret generic -n auth oauth2-proxy --from-literal=client-id=${OIDC_CLIENT_ID_INPUT} --from-literal=client-secret=${OIDC_CLIENT_SECRET_INPUT} --from-literal=cookie-secret=${COOKIE_SECRET} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/oidc-auth/base/oauth2-proxy-secret.yaml
+          break;;
+        No ) exit;;
+    esac
+done
+
+echo "Are you using a private repo"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes )
+          read -p 'Repository HTTPS Username: ' REPO_HTTPS_USERNAME
+          read -p 'Repository HTTPS Password: ' REPO_HTTPS_PASSWORD
+          kubectl create secret generic -n argocd git-repo-secret --from-literal=HTTPS_USERNAME=${REPO_HTTPS_USERNAME} --from-literal=HTTPS_PASSWORD=${REPO_HTTPS_PASSWORD} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/argocd/overlays/private-repo/secret.yaml
+          break;;
+        No ) exit;;
+    esac
+done
