@@ -37,7 +37,6 @@ resources:
 # - argocd-applications/monitoring-resources.yaml
 # - argocd-applications/kube-prometheus-stack.yaml
 # disabled (not in use at the moment)
-# - argocd-applications/loki-stack.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
 # - argocd-applications/rook-ceph.yaml
