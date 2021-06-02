@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoflow/argoflow
+    repoURL: https://github.com/statcan/argoflow
     targetRevision: HEAD
     path: kubeflow/common/dex-istio
     kustomize:
