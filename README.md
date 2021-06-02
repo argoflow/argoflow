@@ -1,6 +1,7 @@
 # Deploying Kubeflow with ArgoCD
 
 **Notice**
+
 A lot of development effort has gone into the [AWS version](https://github.com/argoflow/argoflow-aws)
 of the ArgoFlow distribution. The numerous changes and improvements implemented there will be
 ported back to this repository relatively soon. The main improvements include using upstream Istio for
@@ -305,45 +306,3 @@ If you would like to change something about your deployment,
 simply make the change, commit it and push it to your fork
 of this repo. ArgoCD will automatically detect the changes
 and update the necessary resources in your cluster.
-
-### Bonus: Extending the Volumes Web App with a File Browser
-
-A large problem for many people is how to easily upload or download data to and from the
-PVCs mounted as their workspace volumes for Notebook Servers. To make this easier
-a simple PVCViewer Controller was created (a slightly modified version of
-the tensorboard-controller). This feature was not ready in time for 1.3,
-and thus I am only documenting it here as an experimental feature as I believe
-many people would like to have this functionality. The images are grabbed from my
-personal dockerhub profile, but I can provide instructions for people that would
-like to build the images themselves. Also, it is important to note that
-the PVC Viewer will work with ReadWriteOnce PVCs, even when they are mounted
-to an active Notebook Server.
-
-Here is an example of the PVC Viewer in action:
-
-![PVCViewer in action](./images/vwa-pvcviewer-demo.gif)
-
-To use the PVCViewer Controller, it must be deployed along with an updated version
-of the Volumes Web App. To do so, deploy
-[experimental-pvcviewer-controller.yaml](./argocd-applications/experimental-pvcviewer-controller.yaml) and
-[experimental-volumes-web-app.yaml](./argocd-application/experimental-volumes-web-app.yaml)
-instead of the regular Volumes Web App. If you are deploying Kubeflow with
-the [kubeflow.yaml](./kubeflow.yaml) file, you can edit the root
-[kustomization.yaml](./kustomization.yaml) and comment out the regular
-Volumes Web App and uncomment the PVCViewer Controller and Experimental
-Volumes Web App.
-
-## Troubleshooting
-
-### I can't get letsencrypt to work. The cert-manager logs show 404 errors.
-The `letsencrypt` HTTP-01 challenge is incompatible with using OIDC ([Link](https://www.jetstack.io/blog/istio-oidc/)). If your DNS server allows programmatic access, use the [DNS-01](https://cert-manager.io/docs/configuration/acme/dns01/) challenge solver instead.
-
-### I am having problems getting the deployment to run on a cluster deployed with kubeadm and/or kubespray.
-The `kube-apiserver` needs additional arguments if your are running a kubenetes version below the recommended version 1.20: `--service-account-issuer=kubernetes.default.svc` and `--service-account-signing-key-file=/etc/kubernetes/ssl/sa.key`.
-
-If your are using kubespray, add the following snipped to your `group_vars`:
-```
-kube_kubeadm_apiserver_extra_args:
-  service-account-issuer: kubernetes.default.svc
-  service-account-signing-key-file: /etc/kubernetes/ssl/sa.key
-```
