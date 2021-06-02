@@ -55,7 +55,6 @@ Overview of the steps:
   - [volumes-web-app](./kubeflow/notebooks/volumes-web-app): Kustomize files for installing the Volumes Web App
   - [operators](./kubeflow/operators): Kustomize files for installing the various operators
   - [pipelines](./kubeflow/pipelines): Kustomize files for installing Kubeflow Pipelines
-- [metallb](./metallb): Kustomize files for installing MetalLB
 
 ### Root files
 
@@ -107,18 +106,6 @@ Please back up your current file if it already exists
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 kubectl patch deployment metrics-server -n kube-system -p '{"spec":{"template":{"spec":{"containers":[{"name":"metrics-server","args":["--cert-dir=/tmp", "--secure-port=4443", "--kubelet-insecure-tls","--kubelet-preferred-address-types=InternalIP"]}]}}}}'
 ```
-
-### Deploy MetalLB
-
-Edit the IP range in [configmap.yaml](./metallb/configmap.yaml) so that it is within
-the range of your docker network. To get your docker network range,
-run the following command:
-
-`docker network inspect -f '{{.IPAM.Config}}' kind`
-
-After updating the metallb configmap, deploy it by running:
-
-`kustomize build metallb/ | kubectl apply -f -`
 
 ### Deploy Argo CD
 
@@ -243,11 +230,7 @@ kubectl rollout restart deployment dex -n auth
 ### Ingress and Certificate
 
 By default the Istio Ingress Gateway is setup to use a LoadBalancer
-and to redirect HTTP traffic to HTTPS. Manifests for MetalLB are provided
-to make it easier for users to use a LoadBalancer Service.
-Edit the [configmap.yaml](./metallb/configmap.yaml) and set
-a range of IP addresses MetalLB can use under `data.config.address-pools.addresses`.
-This must be in the same subnet as your cluster nodes.
+and to redirect HTTP traffic to HTTPS.
 
 If you do not wish to use a LoadBalancer, change the `spec.type` in [gateway-service.yaml](./kubeflow/common/istio/gateway-service.yaml)
 to `NodePort`.
@@ -360,13 +343,13 @@ The `kube-apiserver` needs additional arguments if your are running a kubenetes 
 
 If your are using kubespray, add the following snipped to your `group_vars`:
 ```
-kube_kubeadm_apiserver_extra_args: 
+kube_kubeadm_apiserver_extra_args:
   service-account-issuer: kubernetes.default.svc
   service-account-signing-key-file: /etc/kubernetes/ssl/sa.key
 ```
 ### I have unbound PVCs with rook-ceph.
 Note that the rook deployment shipped with ArgoFlow requires a HA setup with at least 3 nodes.
 
-Make sure, that there is a clean partition or drive available for rook to use. 
+Make sure, that there is a clean partition or drive available for rook to use.
 
 Change the `deviceFilter` in [cluster-patch.yaml](./rook-ceph/cluster-patch.yaml) to match the drives you want to use. For `nvme` drives change the filter to `^nvme[0-9]`. In case your have previously deployed rook on any of the disks, format them, remove the folder `/var/lib/rook` on all nodes, and reboot. Alternatively, follow the [rook-ceph disaster recover guide](https://github.com/rook/rook/blob/master/Documentation/ceph-disaster-recovery.md) to adopt an existing rook-ceph cluster.

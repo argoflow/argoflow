@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# set secretkey for metallb
-echo "generating secret for metallb"
-yq eval -i ".stringData.secretkey = \"$(openssl rand -base64 128)\"" metallb/secret.yaml
-
 if [ -z "$1" ]
     then
         echo "no repo URL provided, using upstream"

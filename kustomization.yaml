@@ -40,5 +40,4 @@ resources:
 # - argocd-applications/loki-stack.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
-# - argocd-applications/metallb.yaml
 # - argocd-applications/rook-ceph.yaml
