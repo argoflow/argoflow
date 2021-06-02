@@ -39,4 +39,3 @@ resources:
 # disabled (not in use at the moment)
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
-# - argocd-applications/rook-ceph.yaml

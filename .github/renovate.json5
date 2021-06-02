@@ -32,12 +32,6 @@
       "additionalBranchPrefix": ""
     },
     {
-      "description": "Rook Ceph Update",
-      "matchPackagePatterns": ["^.*rook\/(rook|ceph)"],
-      "groupName": "rook-ceph",
-      "additionalBranchPrefix": ""
-    },
-    {
       "description": "Group Kubeflow Pipelines update",
       "matchPackagePatterns": ["^(kubeflow|gcr.io)\/(ml-|tfx-oss-public\/ml_metadata_store_server)?(pipeline)?.*"],
       "groupName": "kubeflow-pipelines",
@@ -95,14 +89,6 @@
           "- https:\/\/.*github.*\.com\/(?<depName>[^\/]+?\/[^\/]*?)\/(?<currentValue>.{6})\/.*.yaml"
         ],
       "datasourceTemplate": "github-tags"
-    },
-    // Update ceph/ceph image in Rook Cluster CR patch
-    {
-      "fileMatch": ["(^|/)cluster-patch.yaml$"],
-      "matchStrings": [
-          "image: (?<depName>[^\/]+?\/[^\/]*?)\:(?<currentValue>.*)"
-        ],
-      "datasourceTemplate": "docker"
     },
     // Update Istio CR and operator
     {

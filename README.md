@@ -347,9 +347,3 @@ kube_kubeadm_apiserver_extra_args:
   service-account-issuer: kubernetes.default.svc
   service-account-signing-key-file: /etc/kubernetes/ssl/sa.key
 ```
-### I have unbound PVCs with rook-ceph.
-Note that the rook deployment shipped with ArgoFlow requires a HA setup with at least 3 nodes.
-
-Make sure, that there is a clean partition or drive available for rook to use.
-
-Change the `deviceFilter` in [cluster-patch.yaml](./rook-ceph/cluster-patch.yaml) to match the drives you want to use. For `nvme` drives change the filter to `^nvme[0-9]`. In case your have previously deployed rook on any of the disks, format them, remove the folder `/var/lib/rook` on all nodes, and reboot. Alternatively, follow the [rook-ceph disaster recover guide](https://github.com/rook/rook/blob/master/Documentation/ceph-disaster-recovery.md) to adopt an existing rook-ceph cluster.
