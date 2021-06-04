@@ -73,6 +73,10 @@ spec:
         value: "false"
       - name: prometheus.prometheusSpec.serviceMonitorSelector
         value: ""
+      - name: prometheus.prometheusSpec.podMonitorSelectorNilUsesHelmValues
+        value: "false"
+      - name: prometheus.prometheusSpec.podMonitorSelector
+        value: ""
       - name: prometheus.prometheusSpec.ruleSelectorNilUsesHelmValues
         value: "false"
       - name: prometheus.prometheusSpec.ruleSelector
