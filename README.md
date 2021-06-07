@@ -36,7 +36,7 @@ Overview of the steps:
 
 - [argocd](./argocd): Kustomize files for ArgoCD
 - [argocd-applications](./argocd-applications): ArgoCD application for each Kubeflow component
-- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.2
+- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.3.1
 - [kubeflow](./kubeflow): Kustomize files for installing Kubeflow componenets
   - [common/dex-istio](./kubeflow/common/dex-istio): Kustomize files for Dex auth installation
   - [common/oidc-authservice](./kubeflow/common/oidc-authservice): Kustomize files for OIDC authservice
