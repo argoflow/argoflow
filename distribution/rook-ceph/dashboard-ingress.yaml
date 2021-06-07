@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
    - hosts:
-     - rook-ceph.example.com
-     secretName: rook-ceph-example-com
+     - <<__subdomain_ceph__>>.<<__domain__>>
+     secretName: rook-ceph-ingressgateway-certs
   rules:
-  - host: rook-ceph.example.com
+  - host: <<__subdomain_ceph__>>.<<__domain__>>
     http:
       paths:
       - path: /

@@ -1,14 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: rgw-example-com
+  name: radosgw-ingressgateway-certs
   namespace: rook-ceph
 spec:
-  secretName: rgw-example-com
+  secretName: radosgw-ingressgateway-certs
   issuerRef:
-    name: kubeflow-self-signing-issuer
+    name: gateways-issuer
     kind: ClusterIssuer
-  commonName: rgw.example.com
+  commonName: <<__subdomain_radosgw__>>.<<__domain__>>
   dnsNames:
-    - rgw.example.com
-    - '*.rgw.example.com'
+    - <<__subdomain_radosgw__>>.<<__domain__>>
+    - '*.<<__subdomain_radosgw__>>.<<__domain__>>'

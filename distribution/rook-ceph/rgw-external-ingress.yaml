@@ -8,16 +8,16 @@ metadata:
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/server-alias: "*.rgw.example.com"
+    nginx.ingress.kubernetes.io/server-alias: "*.<<__subdomain_radosgw__>>.<<__domain__>>"
     nginx.ingress.kubernetes.io/server-snippet: |
       proxy_ssl_verify off;
 spec:
   tls:
    - hosts:
-     - rgw.example.com
-     secretName: rgw-abs-cloud-nl
+     - <<__subdomain_radosgw__>>.<<__domain__>>
+     secretName: radosgw-ingressgateway-certs
   rules:
-  - host: rgw.example.com
+  - host: <<__subdomain_radosgw__>>.<<__domain__>>
     http:
       paths:
       - path: /

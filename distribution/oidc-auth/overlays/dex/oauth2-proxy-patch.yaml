@@ -44,12 +44,12 @@ spec:
       - name: extraArgs.whitelist-domain
         value: .<<__domain__>>
       - name: extraArgs.oidc-issuer-url
-        value: <<__oidc.issuer__>>
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>"
       - name: extraArgs.login-url
-        value: "<<__oidc.issuer__>>/auth"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/auth"
       - name: extraArgs.oidc-jwks-url
-        value: "<<__oidc.issuer__>>/keys"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/keys"
       - name: extraArgs.redeem-url
-        value: "<<__oidc.issuer__>>/token"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/token"
       - name: extraArgs.skip-oidc-discovery
         value: "true"

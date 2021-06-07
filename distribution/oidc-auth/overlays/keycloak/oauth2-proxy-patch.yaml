@@ -44,13 +44,13 @@ spec:
       - name: extraArgs.whitelist-domain
         value: .<<__domain__>>
       - name: extraArgs.login-url
-        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/auth"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/auth/realms/kubeflow/protocol/openid-connect/auth"
       - name: extraArgs.redeem-url
-        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/token"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/auth/realms/kubeflow/protocol/openid-connect/token"
       - name: extraArgs.profile-url
-        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
       - name: extraArgs.validate-url
-        value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+        value: "https://<<__subdomain_auth__>>.<<__domain__>>/auth/realms/kubeflow/protocol/openid-connect/userinfo"
       - name: extraArgs.scope
         value: email
       - name: extraArgs.scope

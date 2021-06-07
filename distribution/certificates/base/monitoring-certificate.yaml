@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: monitoring-ingressgateway-certs
   issuerRef:
-    name: letsencrypt-prod
+    name: gateways-issuer
     kind: ClusterIssuer
   dnsNames:
     - <<__subdomain_grafana__>>.<<__domain__>>

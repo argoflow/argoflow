@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: rook-ceph-example-com
+  name: rook-ceph-ingressgateway-certs
   namespace: rook-ceph
 spec:
-  secretName: rook-ceph-example-com
+  secretName: rook-ceph-ingressgateway-certs
   issuerRef:
-    name: kubeflow-self-signing-issuer
+    name: gateways-issuer
     kind: ClusterIssuer
-  commonName: rook-ceph.example.com
+  commonName: <<__subdomain_ceph__>>.<<__domain__>>
   dnsNames:
-    - rook-ceph.example.com
+    - <<__subdomain_ceph__>>.<<__domain__>>
