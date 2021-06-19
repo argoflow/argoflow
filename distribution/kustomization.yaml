@@ -7,12 +7,14 @@ resources:
 # - argocd-applications/rook-ceph.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
-- argocd-applications/argocd.yaml
-# - argocd-private-repo.yaml
 - argocd-applications/istio-operator.yaml
 - argocd-applications/istio.yaml    
 - argocd-applications/istio-resources.yaml
 # - argocd-applications/knative.yaml
+
+# Pick *one* of the following applications
+- argocd-applications/argocd.yaml
+# - argocd-applications/argocd-private-repo.yaml
 
 # Pick *one* of the following applications 
 - argocd-applications/cert-manager-self-signing.yaml
