@@ -87,7 +87,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
           read -p 'Repository HTTPS Username: ' REPO_HTTPS_USERNAME
-          read -p 'Repository HTTPS Password: ' REPO_HTTPS_PASSWORD
+          read -s 'Repository HTTPS Password: ' REPO_HTTPS_PASSWORD
           kubectl create secret generic -n argocd git-repo-secret --from-literal=HTTPS_USERNAME=${REPO_HTTPS_USERNAME} --from-literal=HTTPS_PASSWORD=${REPO_HTTPS_PASSWORD} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/argocd/overlays/private-repo/secret.yaml
           exit;;
         No ) exit;;
