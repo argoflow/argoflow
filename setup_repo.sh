@@ -13,7 +13,7 @@ do
 done <${SETUP_CONF_PATH} # pass the setup config into the while loop
 
 # Create metallb secret
-kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/metallb/secret.yaml
+# kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/metallb/secret.yaml
 
 # Auth setup
 
