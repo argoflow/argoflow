@@ -72,7 +72,7 @@
   },
   // Update Argo CD application specs
   "argocd": {
-      "fileMatch": ["argocd-applications/.+\\.yaml$"]
+      "fileMatch": ["(argocd-applications|oidc-auth)/.+\\.yaml$"]
   },
   "regexManagers": [
     {
