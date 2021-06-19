@@ -36,7 +36,7 @@ read -p 'Email: ' EMAIL
 read -p 'Username: ' USERNAME
 read -p 'First name (for Kubeflow account): ' FIRSTNAME
 read -p 'Last name (for Kubeflow account): ' LASTNAME
-read -p 'Password (for Kubeflow login): ' ADMIN_PASS
+read -s 'Password (for Kubeflow login): ' ADMIN_PASS
 
 ADMIN_PASS_DEX=$(python3 -c "from passlib.hash import bcrypt; import secrets; print(bcrypt.using(rounds=12, ident='2y').hash(\"${ADMIN_PASS}\"))")
 
