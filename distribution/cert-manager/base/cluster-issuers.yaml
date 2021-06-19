@@ -1,0 +1,15 @@
+# This issuer is used by certain Kubeflow applications for cluster-internal certificates
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: kubeflow-self-signing-issuer
+spec:
+  selfSigned: {}
+---
+# This issuer is used by the "kubeflow" and "auth" Gateways. By default (as defined here) it is a self-signing issuer. In the overlays this can be changed to DNS or HTTPS challenge resolving
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: gateways-issuer
+spec:
+  selfSigned: {}

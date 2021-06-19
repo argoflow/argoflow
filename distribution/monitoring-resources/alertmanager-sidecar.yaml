@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Sidecar
+metadata:
+  namespace: monitoring
+  name: alertmanager
+spec:
+  workloadSelector:
+    labels:
+      app: alertmanager
+  ingress:
+  - port:
+      number: 9094
+      protocol: TCP
+      name: tcp-mesh
+    defaultEndpoint: 0.0.0.0:9094

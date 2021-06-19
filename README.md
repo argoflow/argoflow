@@ -36,7 +36,7 @@ Overview of the steps:
 
 - [argocd](./argocd): Kustomize files for ArgoCD
 - [argocd-applications](./argocd-applications): ArgoCD application for each Kubeflow component
-- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.3.1
+- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.4.0
 - [kubeflow](./kubeflow): Kustomize files for installing Kubeflow componenets
   - [common/dex-istio](./kubeflow/common/dex-istio): Kustomize files for Dex auth installation
   - [common/oidc-authservice](./kubeflow/common/oidc-authservice): Kustomize files for OIDC authservice
@@ -338,7 +338,7 @@ to an active Notebook Server.
 
 Here is an example of the PVC Viewer in action:
 
-![PVCViewer in action](./images/vwa-pvcviewer-demo.gif)
+![PVCViewer in action](./docs/images/vwa-pvcviewer-demo.gif)
 
 To use the PVCViewer Controller, it must be deployed along with an updated version
 of the Volumes Web App. To do so, deploy

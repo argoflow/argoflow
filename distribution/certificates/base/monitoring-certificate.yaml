@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: monitoring-ingressgateway-certs
+  namespace: istio-system
+spec:
+  secretName: monitoring-ingressgateway-certs
+  issuerRef:
+    name: gateways-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - <<__subdomain_grafana__>>.<<__domain__>>
+    - <<__subdomain_kiali__>>.<<__domain__>>
+    - <<__subdomain_kubecost__>>.<<__domain__>>

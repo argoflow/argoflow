@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: gateways-issuer
+spec:  
+  selfSigned:
+    $patch: delete
+  acme:
+    email: <<__cert_manager.email_user__>>@<<__cert_manager.email_domain__>>
+    server: <<__cert_manager.server__>>
+    privateKeySecretRef:
+      name: gateways-issuer-account-key
+    solvers:
+    - dns01:
+        cloudflare:
+          email: <<__cloudflare.email__>>
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token

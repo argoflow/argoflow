@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 3.0.4
+    chart: keycloak
+    helm:
+     parameters:
+      - name : auth.adminUser
+        value : admin
+      - name: auth.managementUser
+        value: manager
+      - name: proxyAddressForwarding
+        value: "true"
+      - name: auth.existingSecret
+        value: keycloak-secret
+      - name: postgresql.existingSecret
+        value: keycloak-postgresql
+      - name: extraVolumeMounts[0].name
+        value: config
+      - name: extraVolumeMounts[0].mountPath
+        value: "/config"
+      - name: extraVolumeMounts[0].readOnly
+        value: "true"
+      - name: extraVolumes[0].name
+        value: config
+      - name: extraVolumes[0].secret.secretName
+        value: kubeflow-realm
+      - name: extraEnvVars[0].name
+        value: KEYCLOAK_EXTRA_ARGS
+      - name: extraEnvVars[0].value
+        value: "-Dkeycloak.import=/config/kubeflow-realm.json"
+      - name: service.type
+        value: ClusterIP
+      - name: service.port
+        value: "8080"
+      - name: service.httpsPort
+        value: "8443"
+      - name: metrics.enabled
+        value: "true"
+      - name: metrics.serviceMonitor.enabled
+        value: "true"
+      - name: metrics.serviceMonitor.namespace
+        value: monitoring
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: auth
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
