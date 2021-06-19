@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 5.0.1
+    targetRevision: 5.0.4
     chart: external-dns
     helm:
       parameters:
