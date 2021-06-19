@@ -48,7 +48,7 @@ yq eval -j -P ".users[0].username = \"${USERNAME}\" | .users[0].email = \"${EMAI
 # Monitoring setup
 
 read -p 'Grafana Admin Username: ' GRAFANA_ADMIN_USERNAME
-read -p 'Grafana Admin Password: ' GRAFANA_ADMIN_PASS
+read -s 'Grafana Admin Password: ' GRAFANA_ADMIN_PASS
 
 kubectl create secret generic -n monitoring grafana-admin-secret --from-literal=admin-user=${GRAFANA_ADMIN_USERNAME} --from-literal=admin-password=${GRAFANA_ADMIN_PASS} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/monitoring-resources/grafana-admin-secret.yaml
 
