@@ -10,7 +10,7 @@ resources:
 images:
 - name: metallb/controller
   newName: metallb/controller
-  newTag: v0.9.6
+  newTag: v0.10.2
   # digest: sha256:99b79462af3d8b7d3b18dd31b854148b9d05365843d2c69ce7c3dd8a1f0d015d
 - name: metallb/speaker
   newName: metallb/speaker
