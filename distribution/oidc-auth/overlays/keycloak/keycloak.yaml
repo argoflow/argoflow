@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 3.0.4
+    targetRevision: 3.1.1
     chart: keycloak
     helm:
      parameters:
