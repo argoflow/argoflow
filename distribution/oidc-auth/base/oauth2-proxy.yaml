@@ -45,6 +45,10 @@ spec:
         value: .<<__domain__>>
       - name: extraArgs.oidc-issuer-url
         value: <<__oidc.issuer__>>
+      - name: extraArgs.scope
+        value: <<__oidc.scope__>>
+      - name: extraArgs.user-id-claim
+        value: <<__oidc.user_id_claim__>>
       # - name: extraArgs.login-url
       #   value: "<<__oidc.issuer__>>/auth/realms/kubeflow/protocol/openid-connect/auth"
       # - name: extraArgs.oidc-jwks-url
