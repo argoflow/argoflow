@@ -36,7 +36,8 @@ read -p 'Email: ' EMAIL
 read -p 'Username: ' USERNAME
 read -p 'First name (for Kubeflow account): ' FIRSTNAME
 read -p 'Last name (for Kubeflow account): ' LASTNAME
-read -s 'Password (for Kubeflow login): ' ADMIN_PASS
+echo 'Password (for Kubeflow login):'
+read -s ADMIN_PASS
 
 ADMIN_PASS_DEX=$(python3 -c "from passlib.hash import bcrypt; import secrets; print(bcrypt.using(rounds=12, ident='2y').hash(\"${ADMIN_PASS}\"))")
 
@@ -48,7 +49,8 @@ yq eval -j -P ".users[0].username = \"${USERNAME}\" | .users[0].email = \"${EMAI
 # Monitoring setup
 
 read -p 'Grafana Admin Username: ' GRAFANA_ADMIN_USERNAME
-read -s 'Grafana Admin Password: ' GRAFANA_ADMIN_PASS
+echo 'Grafana Admin Password:'
+read -s GRAFANA_ADMIN_PASS
 
 kubectl create secret generic -n monitoring grafana-admin-secret --from-literal=admin-user=${GRAFANA_ADMIN_USERNAME} --from-literal=admin-password=${GRAFANA_ADMIN_PASS} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/monitoring-resources/grafana-admin-secret.yaml
 
@@ -59,7 +61,8 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
           read -p 'OIDC Client ID: ' OIDC_CLIENT_ID_INPUT
-          read -p 'OIDC Client Secret: ' OIDC_CLIENT_SECRET_INPUT
+          echo "OIDC Client Secret:"
+          read -s OIDC_CLIENT_SECRET_INPUT
           kubectl create secret generic -n auth oauth2-proxy --from-literal=client-id=${OIDC_CLIENT_ID_INPUT} --from-literal=client-secret=${OIDC_CLIENT_SECRET_INPUT} --from-literal=cookie-secret=${COOKIE_SECRET} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/oidc-auth/base/oauth2-proxy-secret.yaml
           break;;
         No ) break;;
@@ -87,7 +90,8 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
           read -p 'Repository HTTPS Username: ' REPO_HTTPS_USERNAME
-          read -s 'Repository HTTPS Password: ' REPO_HTTPS_PASSWORD
+          echo 'Repository HTTPS Password:'
+          read -s REPO_HTTPS_PASSWORD
           kubectl create secret generic -n argocd git-repo-secret --from-literal=HTTPS_USERNAME=${REPO_HTTPS_USERNAME} --from-literal=HTTPS_PASSWORD=${REPO_HTTPS_PASSWORD} --dry-run=client -o yaml | kubeseal | yq eval -P > ${DISTRIBUTION_PATH}/argocd/overlays/private-repo/secret.yaml
           break;;
         No ) break;;
