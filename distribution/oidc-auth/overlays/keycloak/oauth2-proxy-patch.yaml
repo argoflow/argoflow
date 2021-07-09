@@ -6,7 +6,6 @@ metadata:
 spec:
   project: default
   source:
-    chart: oauth2-proxy
     helm:
       parameters:
       - name: image.repository
@@ -17,7 +16,7 @@ spec:
         value: "false"
       - name: config.existingSecret
         value: oauth2-proxy
-      - name: service.port
+      - name: service.portNumber
         value: "4180"
       - name: extraArgs.provider
         value: keycloak
