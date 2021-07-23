@@ -68,7 +68,7 @@ spec:
       # - name: extraArgs.skip-oidc-discovery
       #   value: "true"
     repoURL: https://oauth2-proxy.github.io/manifests
-    targetRevision: 4.0.5
+    targetRevision: 4.0.6
   destination:
     namespace: auth
     server: https://kubernetes.default.svc
