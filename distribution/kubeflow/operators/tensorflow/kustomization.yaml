@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/tf-operator/manifests/overlays/kubeflow?ref=f564bce4ac856d347ef1e3f8b131d10740d54972 # tag=v1.1.0
+- github.com/kubeflow/tf-operator/manifests/overlays/kubeflow?ref=6f1e96c4b3e7b63860780b6f572ec229e58ca146 # tag=v1.1.1
 
 images:
 - name: public.ecr.aws/j1r0q0g6/training/tf-operator
