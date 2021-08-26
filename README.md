@@ -174,7 +174,7 @@ from the URI.
     kustomize build argocd/ | kubectl apply -f -
     ```
 
-2. Install the ArgoCD CLI tool from  [here](https://github.com/argoproj/argo-cd/releases/latest)
+2. Install the ArgoCD CLI tool from  [here](https://argoproj.github.io/argo-cd/cli_installation/)
 3. Access the ArgoCD UI by exposing it through a LoadBalander, Ingress or by port-fowarding
 using `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 4. Login to the ArgoCD CLI. First get the default password for the `admin` user:
