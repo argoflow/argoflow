@@ -16,7 +16,7 @@ images:
   # digest: sha256:ff94efdd1ec68f43e01b39a2d11a73961b1cf73860515893118af731551f1939
 - name: quay.io/argoproj/argocd
   newName: quay.io/argoproj/argocd
-  newTag: v2.0.3
+  newTag: v2.0.5
   # digest: sha256:8d1d58ef963f615da97e0b2c54dbe243801d5e7198b98393ab36b7a5768f72a4
 - name: haproxy
   newName: haproxy
