@@ -5,11 +5,11 @@ resources:
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/common.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/crds.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/operator.yaml
-- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.1.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
-- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.1.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
-- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.1.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
-- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.1.1/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
-- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.1.1/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.2.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.2.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.2.1/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.2.1/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
+- https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/v4.2.1/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/csi/rbd/snapshotclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.5/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
