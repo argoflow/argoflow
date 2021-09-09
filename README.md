@@ -27,7 +27,8 @@ Overview of the steps:
 
 - fork this repo
 - modify the kustomizations for your purpose
-- run `./setup_repo.sh <your_repo_fork_url>`
+- create a `setup.conf` file ([example](/examples/setup.conf)) in the root of the repo
+- run `./setup_repo.sh setup.conf`
 - commit and push your changes
 - install ArgoCD
 - run `kubectl apply -f kubeflow.yaml`
