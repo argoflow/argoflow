@@ -9,6 +9,7 @@ spec:
     repoURL: https://github.com/amberkay/argoflow
     path: ./distribution
     kustomize:
+      version: v4.0.5
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
