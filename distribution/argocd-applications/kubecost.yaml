@@ -28,7 +28,7 @@ spec:
       - name: global.grafana.domainName
         value: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
       - name: kubecostProductConfigs.grafanaURL
-        value: https://<<__subdomain_grafana__>>.<<__domain__>>/grafana
+        value: https://grafana.my-cluster.my-domain.com/grafana
         # Placing the dashboards into a folder is not working yet.
         # Dashboards are also slighlty broken so might be better to use versions we fixed
       # - name: grafana.sidecar.dashboards.annotations.k8s-sidecar-target-directory
