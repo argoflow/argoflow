@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoflow/argoflow
+    repoURL: https://github.com/amberkay/argoflow
     targetRevision: HEAD
-    path: metallb
+    path: distribution/metallb
     kustomize:
       version: v4.0.5
   destination:
