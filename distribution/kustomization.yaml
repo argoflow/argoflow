@@ -3,14 +3,14 @@ kind: Kustomization
 
 resources:
 ## Common
-# - argocd-applications/metallb.yaml
+- argocd-applications/metallb.yaml
 # - argocd-applications/rook-ceph.yaml
 # - argocd-applications/nginx.yaml
 # - argocd-applications/nvidia-gpu-operator.yaml
 - argocd-applications/istio-operator.yaml
 - argocd-applications/istio.yaml    
 - argocd-applications/istio-resources.yaml
-# - argocd-applications/knative.yaml
+- argocd-applications/knative.yaml
 
 # Pick *one* of the following applications
 - argocd-applications/argocd.yaml
@@ -25,8 +25,8 @@ resources:
 # - argocd-applications/certificates-imported.yaml
 
 # Pick *one* of the following applications:  
-# - argocd-applications/oidc-auth-on-cluster-dex.yaml
-- argocd-applications/oidc-auth-on-cluster-keycloak.yaml
+- argocd-applications/oidc-auth-on-cluster-dex.yaml
+# - argocd-applications/oidc-auth-on-cluster-keycloak.yaml
 # - argocd-applications/oidc-auth-external.yaml
 
 ## Kubeflow  

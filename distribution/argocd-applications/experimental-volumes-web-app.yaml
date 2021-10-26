@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <<__git_repo.url__>>
-    targetRevision: <<__git_repo.target_revision__>>
+    repoURL: https://gitlab.mycompany.com/argoflow-aws-initialised.git
+    targetRevision: 123456789012/my-cluster.my-domain.com
     path: distribution/kubeflow/notebooks/experimental-volumes-web-app
     kustomize:
       version: v4.0.5
