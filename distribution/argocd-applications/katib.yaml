@@ -8,8 +8,6 @@ spec:
   source:
     repoURL: https://github.com/amberkay/argoflow
     path: distribution/kubeflow/katib
-    kustomize:
-      version: v4.0.5
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
