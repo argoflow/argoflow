@@ -37,7 +37,7 @@ Overview of the steps:
 - [argocd](./argocd): Kustomize files for ArgoCD
 - [argocd-applications](./argocd-applications): ArgoCD application for each Kubeflow component
 - [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.4.0
-- [kubeflow](./kubeflow): Kustomize files for installing Kubeflow componenets
+- [kubeflow](./kubeflow): Kustomize files for installing Kubeflow components
   - [common/dex-istio](./kubeflow/common/dex-istio): Kustomize files for Dex auth installation
   - [common/oidc-authservice](./kubeflow/common/oidc-authservice): Kustomize files for OIDC authservice
   - [roles-namespaces](./kubeflow/common/roles-namespaces): Kustomize files for Kubeflow namespace and ClusterRoles
@@ -122,7 +122,7 @@ After updating the metallb configmap, deploy it by running:
 
 ### Deploy Argo CD
 
-Deploy Argo CD with the following commaind:
+Deploy Argo CD with the following command:
 
 `kustomize build argocd/ | kubectl apply -f -`
 
@@ -175,7 +175,7 @@ from the URI.
     ```
 
 2. Install the ArgoCD CLI tool from  [here](https://argoproj.github.io/argo-cd/cli_installation/)
-3. Access the ArgoCD UI by exposing it through a LoadBalander, Ingress or by port-fowarding
+3. Access the ArgoCD UI by exposing it through a LoadBalander, Ingress or by port-forwarding
 using `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 4. Login to the ArgoCD CLI. First get the default password for the `admin` user:
     `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
@@ -291,7 +291,7 @@ argument to the script to specify it.
 ./setup_repo.sh <your_repo_fork_url> <your_branch_or_release>
 ```
 
-To change what Kubeflow or third-party componenets are included in the deployment,
+To change what Kubeflow or third-party components are included in the deployment,
 edit the [root kustomization.yaml](./kustomization.yaml) and
 comment or uncomment the components you do or don't want.
 
@@ -300,7 +300,7 @@ Next, commit your changes and push them to your repository.
 ### Deploying Kubeflow
 
 Once you've commited and pushed your changes to your repository,
-you can either choose to deploy componenet individually or
+you can either choose to deploy component individually or
 deploy them all at once.
 For example, to deploy a single component you can run:
 
