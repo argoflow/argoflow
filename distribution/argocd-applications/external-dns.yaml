@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 5.1.1
+    chart: external-dns
+    helm:
+      parameters:
+      - name: serviceAccount.create
+        value: "true"
+      - name: rbac.create
+        value: "true"
+      - name: resources.limits.cpu
+        value: 100m
+      - name: resources.limits.memory
+        value: 300Mi
+      - name: resources.requests.cpu
+        value: 100m
+      - name: resources.requests.memory
+        value: 300Mi
+      - name: provider
+        value: cloudflare
+      - name: cloudflare.secretName
+        value: cloudflare-api-token-secret
+      - name: sources[0]
+        value: service
+      - name: sources[1]
+        value: ingress
+      - name: sources[2]
+        value: istio-gateway
+      - name: sources[3]
+        value: istio-virtualservice
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

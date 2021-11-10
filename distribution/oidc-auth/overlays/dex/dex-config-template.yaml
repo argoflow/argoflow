@@ -1,0 +1,30 @@
+issuer: https://<<__subdomain_auth__>>.<<__domain__>>
+storage:
+  type: kubernetes
+  config:
+    inCluster: true
+web:
+  http: 0.0.0.0:5556
+logger:
+  level: "debug"
+  format: text
+oauth2:
+  skipApprovalScreen: true
+expiry:
+  signingKeys: "4h"
+  idTokens: "1h"
+enablePasswordDB: true
+staticPasswords:
+- email:
+  hash:
+  # https://github.com/dexidp/dex/pull/1601/commits
+  # FIXME: Use hashFromEnv instead
+  username:
+  userID: "15841185641784"
+staticClients:
+# https://github.com/dexidp/dex/pull/1664
+- id:
+  redirectURIs:
+  - "https://<<__subdomain_dashboard__>>.<<__domain__>>/oauth2/callback"
+  name: 'Dex Login Application'
+  secret:

@@ -1,31 +1,57 @@
-
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
     "config:base",
     //"schedule:daily",
     ":dependencyDashboard",
-    ":prHourlyLimitNone"
+    ":prHourlyLimitNone",
   ],
-  "schedule": [
-    "before 11pm"
-  ],
-  "packageRules": [
+  schedule: ["before 11pm"],
+  packageRules: [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": true
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["major"],
+      enabled: true,
     },
     {
-      "description": "Group Cert Manager update",
-      "matchPackagePatterns": ["^.*cert-manager.*"],
-      "matchDatasources": ["docker", "github-tags"],
-      "groupName": "cert-manager",
-      "groupSlug": "cert-manager"
+      description: "Group Cert Manager Update",
+      matchPackagePatterns: ["^.*cert-manager.*"],
+      groupName: "cert-manager",
+      additionalBranchPrefix: "",
+    },
+    {
+      description: "Group Argo CD Update",
+      matchPackagePatterns: ["^.*argo[-]?cd.*"],
+      groupName: "argo-cd",
+      additionalBranchPrefix: "",
+    },
+    {
+      description: "Rook Ceph Update",
+      matchPackagePatterns: ["^.*rook/(rook|ceph)"],
+      groupName: "rook-ceph",
+      additionalBranchPrefix: "",
+    },
+    {
+      description: "Group Kubeflow Pipelines update",
+      matchPackagePatterns: [
+        "^(kubeflow|gcr.io)/(ml-|tfx-oss-public/ml_metadata_store_server).?(pipeline)?.*",
+      ],
+      groupName: "kubeflow-pipelines",
+      additionalBranchPrefix: "",
+    },
+    {
+      description: "Group KNative",
+      matchPackagePatterns: ["^gcr.io/knative.*$"],
+      groupName: "knative",
+      additionalBranchPrefix: "",
+    },
+    {
+      description: "Notebook Updates",
+      matchPackagePatterns: ["^ghcr.io/pluralsh/kubeflow-notebooks.*"],
+      groupName: "notebooks",
+      automerge: true,
+      requiredStatusChecks: null,
+      additionalBranchPrefix: "",
     },
     //{
     //  "matchDatasources": [
@@ -45,29 +71,65 @@
     //    "automerge": false
     //},
     //},
-    { // major updates do not create PRs automatically
-      "updateTypes": ["major"],
-      "dependencyDashboardApproval": true,
-    }
-  ],
-  "separateMinorPatch": true,
-  "kustomize": {
-    "enabled": true,
-  },
-  "regexManagers": [
     {
-      "fileMatch": ["(^|/)kustomization.yaml$"],
-      "matchStrings": [
-          "- github\\.com\\/(?<depName>[^/]+?\\/[^/]*?)\\/.*\\?ref=(?<currentDigest>[a-f0-9]{40}) # tag=(?<currentValue>.*)"
-        ],
-      "datasourceTemplate": "github-tags"
+      // major updates do not create PRs automatically
+      updateTypes: ["major"],
+      dependencyDashboardApproval: true,
+    },
+  ],
+  separateMinorPatch: true,
+  kustomize: {
+    enabled: true,
+  },
+  // Enable scanning of Kubernetes YAML
+  kubernetes: {
+    fileMatch: ["\\.yaml$"],
+  },
+  // Update Argo CD application specs
+  argocd: {
+    fileMatch: ["(argocd-applications|oidc-auth)/.+\\.yaml$"],
+  },
+  regexManagers: [
+    {
+      fileMatch: ["(^|/)kustomization.yaml$"],
+      matchStrings: [
+        "- github\\.com\\/(?<depName>[^/]+?\\/[^/]*?)\\/.*\\?ref=(?<currentDigest>[a-f0-9]{40}) # tag=(?<currentValue>.*)",
+      ],
+      datasourceTemplate: "github-tags",
     },
     {
-      "fileMatch": ["(^|/)kustomization.yaml$"],
-      "matchStrings": [
-          "- https:\/\/github\.com\/(?<depName>[^\/]+?\/[^\/]*?)\/releases\/download\/(?<currentValue>.*)\/.*.yaml"
-        ],
-      "datasourceTemplate": "github-tags"
-    }
-  ]
+      fileMatch: ["(^|/)kustomization.yaml$"],
+      matchStrings: [
+        "- https://github.com/(?<depName>[^/]+?/[^/]*?)/releases/download/(?<currentValue>.*)/.*.yaml",
+      ],
+      datasourceTemplate: "github-tags",
+    },
+    {
+      fileMatch: ["(^|/)kustomization.yaml$"],
+      matchStrings: [
+        "- https://.*github.*.com/(?<depName>[^/]+?/[^/]*?)/(?<currentValue>.{6})/.*.yaml",
+      ],
+      datasourceTemplate: "github-tags",
+    },
+    // Update ceph/ceph image in Rook Cluster CR patch
+    {
+      fileMatch: ["(^|/)cluster-patch.yaml$"],
+      matchStrings: ["image: (?<depName>[^/]+?/[^/]*?):(?<currentValue>.*)"],
+      datasourceTemplate: "docker",
+    },
+    // Update Istio CR and operator
+    {
+      fileMatch: ["(^|/)istio-(spec|operator).yaml$"],
+      matchStrings: ["(tag:|value:) (?<currentValue>.*) # (?<depName>.*)"],
+      datasourceTemplate: "docker",
+    },
+    // Update Jupyter Spawner Images
+    {
+      fileMatch: ["(^|/)spawner_ui_config.yaml$"],
+      matchStrings: [
+        "(value:|-) (?<depName>kubeflownotebooks/[^/]*?):(?<currentValue>.*)",
+      ],
+      datasourceTemplate: "docker",
+    },
+  ],
 }

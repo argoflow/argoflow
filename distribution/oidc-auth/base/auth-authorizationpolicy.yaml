@@ -1,0 +1,34 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: auth-allow-in-cluster-redirect
+  namespace: istio-system
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+  rules:
+  - to:
+    - operation:
+        hosts:
+        - "<<__subdomain_auth__>>.<<__domain__>>"
+        - "<<__subdomain_dashboard__>>.<<__domain__>>" # needed for redirect after authentication
+        - "<<__subdomain_serving__>>.<<__domain__>>" # needed for redirect after authentication
+        - "*.<<__subdomain_serving__>>.<<__domain__>>" # needed for redirect after authentication
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: auth-allow-access
+  namespace: auth
+spec:
+  action: ALLOW
+  rules:
+  - {}
+  # - from:
+  #   - source:
+  #       namespaces:
+  #       - auth
+  #       - istio-system

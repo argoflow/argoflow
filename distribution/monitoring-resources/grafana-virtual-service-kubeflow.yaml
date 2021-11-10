@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grafana-kubeflow
+  namespace: monitoring
+spec:
+  gateways:
+  - kubeflow/kubeflow-gateway
+  hosts:
+  - <<__subdomain_dashboard__>>.<<__domain__>>
+  http:
+  - headers:
+      request:
+        add:
+          x-forwarded-prefix: /grafana
+    match:
+    - uri:
+        prefix: /grafana/
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+        port:
+          number: 80

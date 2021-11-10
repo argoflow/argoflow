@@ -1,9 +1,20 @@
 # Deploying Kubeflow with ArgoCD
 
+**Notice**
+A lot of development effort has gone into the [AWS version](https://github.com/argoflow/argoflow-aws)
+of the ArgoFlow distribution. The numerous changes and improvements implemented there will be
+ported back to this repository relatively soon. The main improvements include using upstream Istio for
+improved security and ease of upgrading (so not the manifests provided by Kubeflow),
+re-implementing authentication using well supported components along with upstream Dex using the Dex helm chart,
+Keycloak as an alternative to Dex and [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
+integration which allows for having secrets in (public) repositories securely. Along with these changes,
+the setup script will be extended to request login credentials for the Kubeflow admin account so that
+insecure default passwords or plain-text passwords amongst your deployment manifests are a thing of the past.
+
 This repository contains Kustomize manifests that point to the upstream
 manifest of each Kubeflow component and provides an easy way for people
 to change their deployment according to their need. ArgoCD application
-manifests for each componenet will be used to deploy Kubeflow. The intended
+manifests for each component will be used to deploy Kubeflow. The intended
 usage is for people to fork this repository, make their desired kustomizations,
 run a script to change the ArgoCD application specs to point to their fork
 of this repository, and finally apply a master ArgoCD application that will
@@ -18,13 +29,14 @@ Overview of the steps:
 - modify the kustomizations for your purpose
 - run `./setup_repo.sh <your_repo_fork_url>`
 - commit and push your changes
+- install ArgoCD
 - run `kubectl apply -f kubeflow.yaml`
 
 ## Folder setup
 
 - [argocd](./argocd): Kustomize files for ArgoCD
 - [argocd-applications](./argocd-applications): ArgoCD application for each Kubeflow component
-- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.2
+- [cert-manager](./cert-manager): Kustomize files for installing cert-manager v1.4.0
 - [kubeflow](./kubeflow): Kustomize files for installing Kubeflow componenets
   - [common/dex-istio](./kubeflow/common/dex-istio): Kustomize files for Dex auth installation
   - [common/oidc-authservice](./kubeflow/common/oidc-authservice): Kustomize files for OIDC authservice
@@ -55,6 +67,7 @@ Overview of the steps:
 - kubectl (latest)
 - kustomize 4.0.5
 - docker (if using kind)
+- yq 4.x
 
 ## Quick Start using kind
 
@@ -125,7 +138,7 @@ Login with the username `admin` and the output of the following command as the p
 
 `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 
-### Deploy kubeflow
+### Deploy Kubeflow
 
 To deploy Kubeflow, execute the following command:
 
@@ -141,7 +154,7 @@ Get the IP of the Kubeflow gateway with the following command:
 
 `kubectl get svc istio-ingressgateway -n istio-system`
 
-Login to Kubeflow with "email-address" `user` and password `12341234`
+Login to Kubeflow with "email-address" `user@kubeflow.org` and password `12341234`
 
 ### Remove kind cluster
 
@@ -161,7 +174,7 @@ from the URI.
     kustomize build argocd/ | kubectl apply -f -
     ```
 
-2. Install the ArgoCD CLI tool from  [here](https://github.com/argoproj/argo-cd/releases/latest)
+2. Install the ArgoCD CLI tool from  [here](https://argoproj.github.io/argo-cd/cli_installation/)
 3. Access the ArgoCD UI by exposing it through a LoadBalander, Ingress or by port-fowarding
 using `kubectl port-forward svc/argocd-server -n argocd 8080:443`
 4. Login to the ArgoCD CLI. First get the default password for the `admin` user:
@@ -325,7 +338,7 @@ to an active Notebook Server.
 
 Here is an example of the PVC Viewer in action:
 
-![PVCViewer in action](./images/vwa-pvcviewer-demo.gif)
+![PVCViewer in action](./docs/images/vwa-pvcviewer-demo.gif)
 
 To use the PVCViewer Controller, it must be deployed along with an updated version
 of the Volumes Web App. To do so, deploy
@@ -336,3 +349,24 @@ the [kubeflow.yaml](./kubeflow.yaml) file, you can edit the root
 [kustomization.yaml](./kustomization.yaml) and comment out the regular
 Volumes Web App and uncomment the PVCViewer Controller and Experimental
 Volumes Web App.
+
+## Troubleshooting
+
+### I can't get letsencrypt to work. The cert-manager logs show 404 errors.
+The `letsencrypt` HTTP-01 challenge is incompatible with using OIDC ([Link](https://www.jetstack.io/blog/istio-oidc/)). If your DNS server allows programmatic access, use the [DNS-01](https://cert-manager.io/docs/configuration/acme/dns01/) challenge solver instead.
+
+### I am having problems getting the deployment to run on a cluster deployed with kubeadm and/or kubespray.
+The `kube-apiserver` needs additional arguments if your are running a kubenetes version below the recommended version 1.20: `--service-account-issuer=kubernetes.default.svc` and `--service-account-signing-key-file=/etc/kubernetes/ssl/sa.key`.
+
+If your are using kubespray, add the following snipped to your `group_vars`:
+```
+kube_kubeadm_apiserver_extra_args: 
+  service-account-issuer: kubernetes.default.svc
+  service-account-signing-key-file: /etc/kubernetes/ssl/sa.key
+```
+### I have unbound PVCs with rook-ceph.
+Note that the rook deployment shipped with ArgoFlow requires a HA setup with at least 3 nodes.
+
+Make sure, that there is a clean partition or drive available for rook to use. 
+
+Change the `deviceFilter` in [cluster-patch.yaml](./rook-ceph/cluster-patch.yaml) to match the drives you want to use. For `nvme` drives change the filter to `^nvme[0-9]`. In case your have previously deployed rook on any of the disks, format them, remove the folder `/var/lib/rook` on all nodes, and reboot. Alternatively, follow the [rook-ceph disaster recover guide](https://github.com/rook/rook/blob/master/Documentation/ceph-disaster-recovery.md) to adopt an existing rook-ceph cluster.

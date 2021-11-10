@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: radosgw-ingressgateway-certs
+  namespace: rook-ceph
+spec:
+  secretName: radosgw-ingressgateway-certs
+  issuerRef:
+    name: gateways-issuer
+    kind: ClusterIssuer
+  commonName: <<__subdomain_radosgw__>>.<<__domain__>>
+  dnsNames:
+    - <<__subdomain_radosgw__>>.<<__domain__>>
+    - '*.<<__subdomain_radosgw__>>.<<__domain__>>'

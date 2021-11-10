@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: metallb-system
+
+resources:
+  - github.com/metallb/metallb/manifests?ref=99469a412510da616538825c7a5ecb1ff0dbc59d # tag=v0.10.2
+  - configmap.yaml
+
+images:
+- name: metallb/controller
+  newName: metallb/controller
+  newTag: v0.10.2
+  # digest: sha256:99b79462af3d8b7d3b18dd31b854148b9d05365843d2c69ce7c3dd8a1f0d015d
+- name: metallb/speaker
+  newName: metallb/speaker
+  newTag: v0.10.2
+  # digest: sha256:dffdaee85e79393785f98f7fd7666fa7d9f53fd90d3319c59a622911ca2e0a09

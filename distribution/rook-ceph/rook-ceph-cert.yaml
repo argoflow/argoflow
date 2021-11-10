@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rook-ceph-ingressgateway-certs
+  namespace: rook-ceph
+spec:
+  secretName: rook-ceph-ingressgateway-certs
+  issuerRef:
+    name: gateways-issuer
+    kind: ClusterIssuer
+  commonName: <<__subdomain_ceph__>>.<<__domain__>>
+  dnsNames:
+    - <<__subdomain_ceph__>>.<<__domain__>>

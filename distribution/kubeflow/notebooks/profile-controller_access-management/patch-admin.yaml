@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: profiles-config
+  namespace: kubeflow
+data:
+  ADMIN: "admin@argoflow.org"

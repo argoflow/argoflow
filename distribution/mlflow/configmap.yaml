@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mlflow-config
+data:
+  DB_NAME: <<__rds.db_name.mlflow__>>
+  RDS_HOST: <<__rds.host__>>
+  RDS_PORT: "<<__rds.port__>>"
+  ARTIFACT_S3_BUCKET: <<__s3.bucket.mlflow__>>
+  ARTIFACT_S3_KEY_PREFIX: <<__s3.key_prefix.mlflow__>>

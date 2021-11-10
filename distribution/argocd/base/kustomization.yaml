@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+- namespace.yaml
+- github.com/argoproj/argo-cd/manifests/cluster-install?ref=8d2b13d733e1dff7d1ad2c110ed31be4804406e2 # tag=v2.0.3
+
+patchesStrategicMerge:
+- patches/configmap-patch.yaml
+- patches/add-custom-kustomize.yaml
+
+images:
+- name: ghcr.io/dexidp/dex
+  newName: ghcr.io/dexidp/dex
+  newTag: v2.27.0
+  # digest: sha256:ff94efdd1ec68f43e01b39a2d11a73961b1cf73860515893118af731551f1939
+- name: quay.io/argoproj/argocd
+  newName: quay.io/argoproj/argocd
+  newTag: v2.0.3
+  # digest: sha256:8d1d58ef963f615da97e0b2c54dbe243801d5e7198b98393ab36b7a5768f72a4
+- name: haproxy
+  newName: haproxy
+  newTag: 2.0.20-alpine
+  # digest: sha256:61ddebc917f98e16a8c479f0fe90d01ed54c5f53ab7937449906f0a89b69e61e
+- name: redis
+  newName: redis
+  newTag: 6.2.1-alpine
+  # digest: sha256:85f11bc7bc6f247b8bc475ab48110076af9a251fcffd61c6b5d7b79a40c4604a

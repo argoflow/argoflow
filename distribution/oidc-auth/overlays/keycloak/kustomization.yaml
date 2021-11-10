@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+- keycloak-secret.yaml
+- kubeflow-realm-secret.yaml
+- postgresql-secret.yaml
+- virtual-service.yaml
+- keycloak.yaml
+
+patchesStrategicMerge:
+- oauth2-proxy-signout-virtual-service.yaml
+- oauth2-proxy-patch.yaml
+- oauth2-proxy-secret.yaml
