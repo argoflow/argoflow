@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/kubeflow/components/centraldashboard/manifests/overlays/istio?ref=0e91a2b9cd0c3b6687692b1f1f09ac6070cc6c3e # tag=v1.3.0
+- github.com/kubeflow/kubeflow/components/centraldashboard/manifests/overlays/istio?ref=v1.4.0 # tag=v1.4.0
 
 patchesStrategicMerge:
 - enable-registration-flow.yaml
@@ -10,4 +10,5 @@ patchesStrategicMerge:
 images:
 - name: public.ecr.aws/j1r0q0g6/notebooks/central-dashboard
   newName: public.ecr.aws/j1r0q0g6/notebooks/central-dashboard
-  newTag: v1.3.0
+  newTag: v1.4
+  # digest: sha256:9b68bc7ee377066076002306d593d1fff47b87cb5961100e2d5e0d50b5322be9
