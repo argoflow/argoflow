@@ -76,7 +76,7 @@ Overview of the steps:
 On linux:
 
 ```bash
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
 chmod +x ./kind
 mv ./kind /<some-dir-in-your-PATH>/kind
 ```
@@ -84,7 +84,7 @@ mv ./kind /<some-dir-in-your-PATH>/kind
 On Mac:
 
 ```bash
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-darwin-amd64
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-darwin-amd64
 chmod +x ./kind
 mv ./kind /<some-dir-in-your-PATH>/kind
 ```
@@ -92,7 +92,7 @@ mv ./kind /<some-dir-in-your-PATH>/kind
 On Windows:
 
 ```cmd
-curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.10.0/kind-windows-amd64
+curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.11.1/kind-windows-amd64
 Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe
 ```
 
