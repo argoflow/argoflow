@@ -221,7 +221,7 @@ staticPasswords:
   username: user
 ```
 
-The `hash` is the bcrypt has of your password.
+The `hash` is the bcrypt hash of your password.
 You can generate this using [this website](https://passwordhashing.com/BCrypt),
 or with the command below:
 
