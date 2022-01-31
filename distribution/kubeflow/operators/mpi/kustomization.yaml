@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/mpi-operator/manifests/overlays/kubeflow?ref=424088cef4358e1c8566677704924ddab657e8e8
+- github.com/kubeflow/mpi-operator/manifests/overlays/kubeflow?ref=v0.3.0
 
 images:
 - name: mpioperator/mpi-operator
   newName: mpioperator/mpi-operator
-  newTag: latest
-  # digest: sha256:547b161ee16991a49aca90cd2b1048a2d3dbc4af42f4b9d5947a4b76c618dad4
+  newTag: "0.3.0"
+  # digest: sha256:3ccfa8d8b7bf97836b291f5cadb39afec4b3612acddb4a5f81ecccdfaede92f9
