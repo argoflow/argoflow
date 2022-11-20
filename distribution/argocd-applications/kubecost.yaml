@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://kubecost.github.io/cost-analyzer/
-    targetRevision: 1.81.0
+    targetRevision: 1.98.0
     chart: cost-analyzer
     helm:
      parameters:
