@@ -1,15 +1,19 @@
-# Deploying Kubeflow with ArgoCD
+# Argoflow
 
-**Notice**
-A lot of development effort has gone into the [AWS version](https://github.com/argoflow/argoflow-aws)
-of the ArgoFlow distribution. The numerous changes and improvements implemented there will be
-ported back to this repository relatively soon. The main improvements include using upstream Istio for
-improved security and ease of upgrading (so not the manifests provided by Kubeflow),
-re-implementing authentication using well supported components along with upstream Dex using the Dex helm chart,
-Keycloak as an alternative to Dex and [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
-integration which allows for having secrets in (public) repositories securely. Along with these changes,
-the setup script will be extended to request login credentials for the Kubeflow admin account so that
-insecure default passwords or plain-text passwords amongst your deployment manifests are a thing of the past.
+<br>
+
+> ## ⚠️ Argoflow has been superseded by [deployKF](https://github.com/deployKF/deployKF) ⚠️
+> 
+> deployKF makes it easy to build reliable ML Platforms on Kubernetes and supports more than just Kubeflow!
+> 
+>  - [deploykf.org](https://www.deploykf.org/)
+>  - [github.com/deployKF/deployKF](https://github.com/deployKF/deployKF)
+
+<br>
+
+---
+
+## Original README
 
 This repository contains Kustomize manifests that point to the upstream
 manifest of each Kubeflow component and provides an easy way for people
